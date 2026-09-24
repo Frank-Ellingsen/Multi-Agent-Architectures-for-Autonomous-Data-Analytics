@@ -1,0 +1,47 @@
+﻿Konto;StandardKonto3;Kontonavn;Kontoklasse;Kontogruppe;Kontotype;SRS_regnskapslinje;AktuellFor
+3030;303;Salgsinntekt tjenester, avgiftspliktig;3;30;Inntekt;Salgsinntekt;SRS/Alle
+3130;313;Salgsinntekt tjenester, avgiftsfri;3;31;Inntekt;Salgsinntekt;SRS/Alle
+3230;323;Salgsinntekt tjenester, unntatt avgiftsplikt;3;32;Inntekt;Salgsinntekt;SRS/Alle
+3400;340;Tilskudd fra Norges forskningsråd;3;34;Inntekt;Tilskudd og overforinger;SRS/Alle
+3410;341;Tilskudd fra andre statlige virksomheter;3;34;Inntekt;Tilskudd og overforinger;SRS/Alle
+3420;342;Tilskudd fra EU;3;34;Inntekt;Tilskudd og overforinger;SRS/Alle
+3450;345;Tilskudd fra naeringsliv og private;3;34;Inntekt;Tilskudd og overforinger;SRS/Alle
+3490;349;Andre tilskudd og overforinger;3;34;Inntekt;Tilskudd og overforinger;SRS/Alle
+3670;367;Annen driftsrelatert inntekt;3;36;Inntekt;Andre driftsinntekter;SRS/Alle
+3900;390;Inntekt fra bevilgninger;3;39;Inntekt;Inntekt fra bevilgninger;SRS/Alle
+5000;500;Lonn fast ansatte;5;50;Kostnad;Lonnskostnader;SRS/Alle
+5050;505;Overtid fast ansatte;5;50;Kostnad;Lonnskostnader;SRS/Alle
+5100;510;Lonn midlertidig ansatte;5;51;Kostnad;Lonnskostnader;SRS/Alle
+5080;508;Feriepenger;5;50;Kostnad;Lonnskostnader;SRS/Alle
+5400;540;Arbeidsgiveravgift innberettede ytelser;5;54;Kostnad;Lonnskostnader;SRS/Alle
+5420;542;Pensjonspremie til SPK;5;54;Kostnad;Lonnskostnader;SRS/Alle
+5800;580;Refusjon av sykepenger;5;58;Kostnad;Lonnskostnader;SRS/Alle
+5810;581;Refusjon av foreldrepenger;5;58;Kostnad;Lonnskostnader;SRS/Alle
+6000;600;Avskrivning immaterielle eiendeler;6;60;Kostnad;Av- og nedskrivninger;SRS/Alle
+6050;605;Avskrivning driftslosore/inventar/IKT;6;60;Kostnad;Av- og nedskrivninger;SRS/Alle
+6300;630;Leie lokaler;6;63;Kostnad;Andre driftskostnader;SRS/Alle
+6310;631;Leie lokaler fra Statsbygg;6;63;Kostnad;Andre driftskostnader;SRS/Alle
+6340;634;Lys, varme;6;63;Kostnad;Andre driftskostnader;SRS/Alle
+6360;636;Renhold, vakthold, vaktmester;6;63;Kostnad;Andre driftskostnader;SRS/Alle
+6420;642;Leie av datasystemer;6;64;Kostnad;Andre driftskostnader;SRS/Alle
+6540;654;Inventar;6;65;Kostnad;Andre driftskostnader;SRS/Alle
+6550;655;Datamaskiner og annet IKT-utstyr;6;65;Kostnad;Andre driftskostnader;SRS/Alle
+6630;663;Reparasjon og vedlikehold leide lokaler;6;66;Kostnad;Andre driftskostnader;SRS/Alle
+6700;670;Konsulenttjenester okonomi/revisjon/juss;6;67;Kostnad;Andre driftskostnader;SRS/Alle
+6710;671;Konsulenttjenester programvare/IKT;6;67;Kostnad;Andre driftskostnader;SRS/Alle
+6720;672;Konsulenttjenester organisasjonsutvikling;6;67;Kostnad;Andre driftskostnader;SRS/Alle
+6730;673;Andre konsulenttjenester;6;67;Kostnad;Andre driftskostnader;SRS/Alle
+6740;674;Innleie av vikarer;6;67;Kostnad;Andre driftskostnader;SRS/Alle
+6750;675;Tjenester til lopende IKT-drift;6;67;Kostnad;Andre driftskostnader;SRS/Alle
+6800;680;Kontorrekvisita;6;68;Kostnad;Andre driftskostnader;SRS/Alle
+6840;684;Aviser, tidsskrifter, boker;6;68;Kostnad;Andre driftskostnader;SRS/Alle
+6860;686;Moter;6;68;Kostnad;Andre driftskostnader;SRS/Alle
+6870;687;Kurs og seminarer egne ansatte;6;68;Kostnad;Andre driftskostnader;SRS/Alle
+6900;690;Telefoni og datakommunikasjon;6;69;Kostnad;Andre driftskostnader;SRS/Alle
+7100;710;Bilgodtgjorelse;7;71;Kostnad;Andre driftskostnader;SRS/Alle
+7130;713;Reisekostnad;7;71;Kostnad;Andre driftskostnader;SRS/Alle
+7150;715;Diettkostnad;7;71;Kostnad;Andre driftskostnader;SRS/Alle
+7320;732;Reklame og markedsforing;7;73;Kostnad;Andre driftskostnader;SRS/Alle
+7400;740;Kontingent;7;74;Kostnad;Andre driftskostnader;SRS/Alle
+7600;760;Lisensavgift og royalties;7;76;Kostnad;Andre driftskostnader;SRS/Alle
+7790;779;Annen kostnad;7;77;Kostnad;Andre driftskostnader;SRS/Alle

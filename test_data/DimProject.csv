@@ -1,0 +1,7 @@
+﻿Prosjekt;Prosjektnavn;Finansieringstype;Finansieringskilde;Prosjektkategori
+DRIFT;Ordinær drift;Bevilgning;KD;Drift
+NFR001;NFR forskningsprosjekt A;Bidrag;NFR;Forskning
+NFR002;NFR forskningsprosjekt B;Bidrag;NFR;Forskning
+EU001;Horisont Europa prosjekt;Bidrag;EU;Forskning
+EVU001;Etter- og videreutdanning;Oppdrag;Ekstern;Utdanning
+INV001;Campus/utstyr;Bevilgning;KD;Investering

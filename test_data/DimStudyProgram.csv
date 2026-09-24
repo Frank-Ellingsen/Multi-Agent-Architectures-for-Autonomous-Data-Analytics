@@ -1,0 +1,37 @@
+﻿Studieprogram;Studieprogramnavn;Studienivaa;NormerteStudiepoeng;Institutt;Fakultet
+I001BA;Bachelorprogram Institutt/enhet 1 - Handelshoyskolen;Bachelor;180;I001;FAK-HH
+I001MA;Masterprogram Institutt/enhet 1 - Handelshoyskolen;Master;120;I001;FAK-HH
+I002BA;Bachelorprogram Institutt/enhet 2 - Handelshoyskolen;Bachelor;180;I002;FAK-HH
+I002MA;Masterprogram Institutt/enhet 2 - Handelshoyskolen;Master;120;I002;FAK-HH
+I003BA;Bachelorprogram Institutt/enhet 3 - Handelshoyskolen;Bachelor;180;I003;FAK-HH
+I003MA;Masterprogram Institutt/enhet 3 - Handelshoyskolen;Master;120;I003;FAK-HH
+I004BA;Bachelorprogram Institutt/enhet 1 - Helse- og idrettsvitenskap;Bachelor;180;I004;FAK-HI
+I004MA;Masterprogram Institutt/enhet 1 - Helse- og idrettsvitenskap;Master;120;I004;FAK-HI
+I005BA;Bachelorprogram Institutt/enhet 2 - Helse- og idrettsvitenskap;Bachelor;180;I005;FAK-HI
+I005MA;Masterprogram Institutt/enhet 2 - Helse- og idrettsvitenskap;Master;120;I005;FAK-HI
+I006BA;Bachelorprogram Institutt/enhet 3 - Helse- og idrettsvitenskap;Bachelor;180;I006;FAK-HI
+I006MA;Masterprogram Institutt/enhet 3 - Helse- og idrettsvitenskap;Master;120;I006;FAK-HI
+I007BA;Bachelorprogram Institutt/enhet 1 - Humaniora og pedagogikk;Bachelor;180;I007;FAK-HP
+I007MA;Masterprogram Institutt/enhet 1 - Humaniora og pedagogikk;Master;120;I007;FAK-HP
+I008BA;Bachelorprogram Institutt/enhet 2 - Humaniora og pedagogikk;Bachelor;180;I008;FAK-HP
+I008MA;Masterprogram Institutt/enhet 2 - Humaniora og pedagogikk;Master;120;I008;FAK-HP
+I009BA;Bachelorprogram Institutt/enhet 3 - Humaniora og pedagogikk;Bachelor;180;I009;FAK-HP
+I009MA;Masterprogram Institutt/enhet 3 - Humaniora og pedagogikk;Master;120;I009;FAK-HP
+I010BA;Bachelorprogram Institutt/enhet 1 - Kunstfag;Bachelor;180;I010;FAK-KF
+I010MA;Masterprogram Institutt/enhet 1 - Kunstfag;Master;120;I010;FAK-KF
+I011BA;Bachelorprogram Institutt/enhet 2 - Kunstfag;Bachelor;180;I011;FAK-KF
+I011MA;Masterprogram Institutt/enhet 2 - Kunstfag;Master;120;I011;FAK-KF
+I012BA;Bachelorprogram Institutt/enhet 3 - Kunstfag;Bachelor;180;I012;FAK-KF
+I012MA;Masterprogram Institutt/enhet 3 - Kunstfag;Master;120;I012;FAK-KF
+I013BA;Bachelorprogram Institutt/enhet 1 - Samfunnsvitenskap;Bachelor;180;I013;FAK-SV
+I013MA;Masterprogram Institutt/enhet 1 - Samfunnsvitenskap;Master;120;I013;FAK-SV
+I014BA;Bachelorprogram Institutt/enhet 2 - Samfunnsvitenskap;Bachelor;180;I014;FAK-SV
+I014MA;Masterprogram Institutt/enhet 2 - Samfunnsvitenskap;Master;120;I014;FAK-SV
+I015BA;Bachelorprogram Institutt/enhet 3 - Samfunnsvitenskap;Bachelor;180;I015;FAK-SV
+I015MA;Masterprogram Institutt/enhet 3 - Samfunnsvitenskap;Master;120;I015;FAK-SV
+I016BA;Bachelorprogram Institutt/enhet 1 - Teknologi og realfag;Bachelor;180;I016;FAK-TR
+I016MA;Masterprogram Institutt/enhet 1 - Teknologi og realfag;Master;120;I016;FAK-TR
+I017BA;Bachelorprogram Institutt/enhet 2 - Teknologi og realfag;Bachelor;180;I017;FAK-TR
+I017MA;Masterprogram Institutt/enhet 2 - Teknologi og realfag;Master;120;I017;FAK-TR
+I018BA;Bachelorprogram Institutt/enhet 3 - Teknologi og realfag;Bachelor;180;I018;FAK-TR
+I018MA;Masterprogram Institutt/enhet 3 - Teknologi og realfag;Master;120;I018;FAK-TR

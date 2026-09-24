@@ -1,0 +1,22 @@
+TiltakID;Organisasjonsnokkel;Prosjekt;Konto;Avviksarsak;Tiltaksbeskrivelse;AnsvarligRolle;StartDatoNokkel;FristDatoNokkel;ForventetEffekt;RealisertEffekt;Status;Prioritet;Sannsynlighet
+T001;I001K1;DRIFT;5000;Hoyere driftskostnader;Reforhandle innkjop;Instituttleder;20260901;20261215;-855000.0;-512578.02;Forsinket;Hoy;0.76
+T002;I002K1;DRIFT;5000;Lavere eksterninntekt;Reforhandle innkjop;Instituttleder;20260901;20261215;-662000.0;-371503.34;Planlagt;Hoy;0.83
+T003;I003K1;DRIFT;5000;Bemanning over plan;Vakansestyring;Instituttleder;20260901;20261215;-774000.0;-289014.81;Forsinket;Middels;0.74
+T004;I004K1;DRIFT;5000;Hoyere driftskostnader;Reforhandle innkjop;Instituttleder;20260901;20261215;-244000.0;-155453.53;Gjennomfort;Middels;0.9
+T005;I005K1;DRIFT;5000;Bemanning over plan;Vakansestyring;Instituttleder;20260901;20261215;-647000.0;-198703.79;Forsinket;Hoy;0.91
+T006;I006K1;DRIFT;5000;Hoyere driftskostnader;Aktiv prosjektoppfolging;Instituttleder;20260901;20261215;-675000.0;-383727.31;Pagar;Hoy;0.76
+T007;I007K1;DRIFT;5000;Lavere eksterninntekt;Reforhandle innkjop;Instituttleder;20260901;20261215;-723000.0;-565012.46;Planlagt;Hoy;0.72
+T008;I008K1;DRIFT;5000;Bemanning over plan;Vakansestyring;Instituttleder;20260901;20261215;-294000.0;-194983.37;Gjennomfort;Middels;0.89
+T009;I009K1;DRIFT;5000;Bemanning over plan;Reforhandle innkjop;Instituttleder;20260901;20261215;-289000.0;-128220.68;Forsinket;Hoy;0.94
+T010;I010K1;DRIFT;5000;Bemanning over plan;Aktiv prosjektoppfolging;Instituttleder;20260901;20261215;-752000.0;-425904.69;Pagar;Middels;0.9
+T011;I011K1;DRIFT;5000;Hoyere driftskostnader;Vakansestyring;Instituttleder;20260901;20261215;-873000.0;-696226.86;Pagar;Middels;0.9
+T012;I012K1;DRIFT;5000;Bemanning over plan;Vakansestyring;Instituttleder;20260901;20261215;-569000.0;-367296.51;Planlagt;Middels;0.93
+T013;I013K1;DRIFT;5000;Hoyere driftskostnader;Reforhandle innkjop;Instituttleder;20260901;20261215;-379000.0;-156395.37;Pagar;Hoy;0.87
+T014;I014K1;DRIFT;5000;Lavere eksterninntekt;Aktiv prosjektoppfolging;Instituttleder;20260901;20261215;-900000.0;-322008.17;Pagar;Middels;0.93
+T015;I015K1;DRIFT;5000;Lavere eksterninntekt;Aktiv prosjektoppfolging;Instituttleder;20260901;20261215;-417000.0;-267816.11;Gjennomfort;Middels;0.71
+T016;I016K1;DRIFT;5000;Hoyere driftskostnader;Vakansestyring;Instituttleder;20260901;20261215;-952000.0;-527236.64;Gjennomfort;Hoy;0.81
+T017;I001K1;DRIFT;5000;Bemanning over plan;Midlertidig vakansestopp adm. stillinger;Fakultetsdirektør;20261001;20261231;-3200000.0;0.0;Planlagt;Hoy;0.85
+T018;I002K1;DRIFT;5400;Lav studentproduksjon per emne;Sammenslåing av valgemner < 15 studenter;Studieleder;20261015;20261215;-2400000.0;0.0;Planlagt;Hoy;0.8
+T019;I003K1;NFR001;3400;Lavere eksterninntekt (BOA);Skjerpet timeføring og raskere fakturering BOA;Forskningssjef;20261001;20261130;-2800000.0;0.0;Planlagt;Hoy;0.75
+T020;I001K1;DRIFT;6700;Hoyere driftskostnader;Reforhandling av eksterne IKT- og konsulentavtaler;Innkjopssjef;20261015;20261201;-1100000.0;0.0;Planlagt;Middels;0.7
+T021;I004K1;DRIFT;5800;Hoyere driftskostnader;Digitalisering av sensur og færre fysiske kommisjoner;Utdanningsleder;20261101;20261215;-750000.0;0.0;Planlagt;Middels;0.9

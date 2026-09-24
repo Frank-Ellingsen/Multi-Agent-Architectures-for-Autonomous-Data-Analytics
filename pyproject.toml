@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multi-agent-analytics"
+version = "0.1.0"
+description = "Multi-agent architecture for autonomous data analytics"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Frank" }]
+license = { text = "MIT" }
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
