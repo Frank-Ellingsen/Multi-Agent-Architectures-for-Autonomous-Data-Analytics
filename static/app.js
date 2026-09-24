@@ -8,13 +8,13 @@ const state = {
   config: {
     provider: 'gemini',
     apiKey: '',
-    model: 'gemini-1.5-flash',
+    model: 'gemini-3.6-flash',
     endpoint: 'http://localhost:11434',
   },
 };
 
 const DEFAULT_MODELS = {
-  gemini: 'gemini-1.5-flash',
+  gemini: 'gemini-3.6-flash',
   openai: 'gpt-4o-mini',
   anthropic: 'claude-3-5-sonnet-20241022',
   ollama: 'llama3.2',
@@ -86,7 +86,7 @@ const loadSavedConfig = () => {
       state.config = { ...state.config, ...parsed };
       llmProviderSelect.value = state.config.provider || 'gemini';
       apiKeyInput.value = state.config.apiKey || '';
-      llmModelInput.value = state.config.model || DEFAULT_MODELS[state.config.provider] || 'gemini-1.5-flash';
+      llmModelInput.value = state.config.model || DEFAULT_MODELS[state.config.provider] || 'gemini-3.6-flash';
       llmEndpointInput.value = state.config.endpoint || 'http://localhost:11434';
       updateConfigUI();
     }
@@ -189,7 +189,7 @@ testConnectionBtn.addEventListener('click', async () => {
   } catch (err) {
     connectionBadge.className = 'badge error';
     connectionBadge.textContent = 'Status: Error';
-    configFeedback.textContent = `Network error: ${err.message}`;
+    configFeedback.textContent = `Backend unreachable (${err.message}). Ensure 'python api.py' is running on port 8000.`;
   }
 });
 

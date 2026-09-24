@@ -9,7 +9,7 @@ from typing import Any
 
 # Default recommended models per provider
 DEFAULT_MODELS: dict[str, str] = {
-    'gemini': 'gemini-1.5-flash',
+    'gemini': 'gemini-3.6-flash',
     'openai': 'gpt-4o-mini',
     'anthropic': 'claude-3-5-sonnet-20241022',
     'ollama': 'llama3.2',
@@ -19,7 +19,7 @@ DEFAULT_OLLAMA_ENDPOINT = 'http://localhost:11434'
 
 
 def get_default_model(provider: str) -> str:
-    return DEFAULT_MODELS.get(provider.lower().strip(), 'gemini-1.5-flash')
+    return DEFAULT_MODELS.get(provider.lower().strip(), 'gemini-3.6-flash')
 
 
 def check_llm_connection(

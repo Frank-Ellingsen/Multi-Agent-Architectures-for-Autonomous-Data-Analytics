@@ -32,7 +32,7 @@ For the complete catalog of specifications, see [skills/README.md](skills/README
 - **30 Modular Skill Specifications:** Standardized operational contracts with typed YAML inputs, outputs, domain rules, guardrails, and definitions of done.
 - **Local-First Analytical SQL:** High-speed in-memory analytics using **DuckDB** (with SQLite fallback) executing queries directly over raw CSV files.
 - **Multi-Provider LLM Integration:** Autonomous executive decision story generation supporting:
-  - **Google Gemini** (`gemini-1.5-flash`, `gemini-1.5-pro`)
+  - **Google Gemini** (`gemini-3.6-flash`, `gemini-2.5-pro`)
   - **OpenAI** (`gpt-4o`, `gpt-4o-mini`)
   - **Anthropic Claude** (`claude-3-5-sonnet-20241022`)
   - **Local Ollama / LM Studio** (Local-first, privacy-preserving, zero external API keys or cloud dependencies needed)

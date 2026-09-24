@@ -6,7 +6,7 @@ from multi_agent_analytics.ai_agent import (
 
 
 def test_default_model_selection():
-    assert get_default_model('gemini') == 'gemini-1.5-flash'
+    assert get_default_model('gemini') == 'gemini-3.6-flash'
     assert get_default_model('openai') == 'gpt-4o-mini'
     assert get_default_model('anthropic') == 'claude-3-5-sonnet-20241022'
     assert get_default_model('ollama') == 'llama3.2'
