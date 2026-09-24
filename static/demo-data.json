@@ -1,0 +1,399 @@
+{
+  "dataset_summary": {
+    "DimAccount.csv": {
+      "row_count": 46,
+      "column_count": 8,
+      "columns": [
+        "Konto",
+        "StandardKonto3",
+        "Kontonavn",
+        "Kontoklasse",
+        "Kontogruppe",
+        "Kontotype",
+        "SRS_regnskapslinje",
+        "AktuellFor"
+      ]
+    },
+    "DimDate.csv": {
+      "row_count": 730,
+      "column_count": 7,
+      "columns": [
+        "Dato",
+        "DatoNokkel",
+        "Aar",
+        "Kvartal",
+        "MaanedNr",
+        "AarMaaned",
+        "MaanedStart"
+      ]
+    },
+    "DimForecastVersion.csv": {
+      "row_count": 4,
+      "column_count": 3,
+      "columns": [
+        "Versjon",
+        "Versjonsnavn",
+        "Sortering"
+      ]
+    },
+    "DimGlossary.csv": {
+      "row_count": 60,
+      "column_count": 9,
+      "columns": [
+        "BegrepID",
+        "Begrep",
+        "FulltNavn",
+        "Kategori",
+        "Definisjon",
+        "PraktiskTolkning",
+        "FormelDAX",
+        "RolleKontekst",
+        "RelevantRapport"
+      ]
+    },
+    "DimOrganization.csv": {
+      "row_count": 40,
+      "column_count": 8,
+      "columns": [
+        "Organisasjonsnokkel",
+        "Fakultet",
+        "Fakultetsnavn",
+        "Institutt",
+        "Instituttnavn",
+        "Koststed",
+        "Koststednavn",
+        "Koststedtype"
+      ]
+    },
+    "DimPositionGroup.csv": {
+      "row_count": 5,
+      "column_count": 3,
+      "columns": [
+        "Stillingsgruppe",
+        "Stillingsgruppenavn",
+        "Stillingskategori"
+      ]
+    },
+    "DimProject.csv": {
+      "row_count": 6,
+      "column_count": 5,
+      "columns": [
+        "Prosjekt",
+        "Prosjektnavn",
+        "Finansieringstype",
+        "Finansieringskilde",
+        "Prosjektkategori"
+      ]
+    },
+    "DimStudyProgram.csv": {
+      "row_count": 36,
+      "column_count": 6,
+      "columns": [
+        "Studieprogram",
+        "Studieprogramnavn",
+        "Studienivaa",
+        "NormerteStudiepoeng",
+        "Institutt",
+        "Fakultet"
+      ]
+    },
+    "FactAction.csv": {
+      "row_count": 21,
+      "column_count": 14,
+      "columns": [
+        "TiltakID",
+        "Organisasjonsnokkel",
+        "Prosjekt",
+        "Konto",
+        "Avviksarsak",
+        "Tiltaksbeskrivelse",
+        "AnsvarligRolle",
+        "StartDatoNokkel",
+        "FristDatoNokkel",
+        "ForventetEffekt",
+        "RealisertEffekt",
+        "Status",
+        "Prioritet",
+        "Sannsynlighet"
+      ]
+    },
+    "FactBudget.csv": {
+      "row_count": 17760,
+      "column_count": 6,
+      "columns": [
+        "DatoNokkel",
+        "Organisasjonsnokkel",
+        "Konto",
+        "Prosjekt",
+        "BudsjettBelop",
+        "Scenario"
+      ]
+    },
+    "FactForecast.csv": {
+      "row_count": 71040,
+      "column_count": 9,
+      "columns": [
+        "DatoNokkel",
+        "Organisasjonsnokkel",
+        "Konto",
+        "Prosjekt",
+        "Versjon",
+        "ForecastBelop",
+        "Datastatus",
+        "Sannsynlighet",
+        "Kommentar"
+      ]
+    },
+    "FactFTE.csv": {
+      "row_count": 1200,
+      "column_count": 6,
+      "columns": [
+        "DatoNokkel",
+        "Organisasjonsnokkel",
+        "Stillingsgruppe",
+        "Aarsverk",
+        "FagligeAarsverk",
+        "Scenario"
+      ]
+    },
+    "FactGL.csv": {
+      "row_count": 35760,
+      "column_count": 8,
+      "columns": [
+        "Bilag",
+        "DatoNokkel",
+        "Organisasjonsnokkel",
+        "Konto",
+        "Prosjekt",
+        "Belop_signert",
+        "Tekst",
+        "Datakilde"
+      ]
+    },
+    "FactStudyPoints.csv": {
+      "row_count": 432,
+      "column_count": 8,
+      "columns": [
+        "DatoNokkel",
+        "Organisasjonsnokkel",
+        "Studieprogram",
+        "RegistrerteStudenter",
+        "PlanlagteStudiepoeng",
+        "AvlagteStudiepoeng",
+        "SPE60",
+        "BestattAndel"
+      ]
+    },
+    "Relationships.csv": {
+      "row_count": 22,
+      "column_count": 7,
+      "columns": [
+        "FraTabell",
+        "FraKolonne",
+        "TilTabell",
+        "TilKolonne",
+        "Kardinalitet",
+        "Kryssfiltrering",
+        "Status"
+      ]
+    }
+  },
+  "schema_summary": {
+    "DimAccount.csv": {
+      "Konto": "integer",
+      "StandardKonto3": "integer",
+      "Kontonavn": "string",
+      "Kontoklasse": "integer",
+      "Kontogruppe": "integer",
+      "Kontotype": "string",
+      "SRS_regnskapslinje": "string",
+      "AktuellFor": "string"
+    },
+    "DimDate.csv": {
+      "Dato": "string",
+      "DatoNokkel": "integer",
+      "Aar": "integer",
+      "Kvartal": "string",
+      "MaanedNr": "integer",
+      "AarMaaned": "string",
+      "MaanedStart": "string"
+    },
+    "DimForecastVersion.csv": {
+      "Versjon": "string",
+      "Versjonsnavn": "string",
+      "Sortering": "integer"
+    },
+    "DimGlossary.csv": {
+      "BegrepID": "integer",
+      "Begrep": "string",
+      "FulltNavn": "string",
+      "Kategori": "string",
+      "Definisjon": "string",
+      "PraktiskTolkning": "string",
+      "FormelDAX": "string",
+      "RolleKontekst": "string",
+      "RelevantRapport": "string"
+    },
+    "DimOrganization.csv": {
+      "Organisasjonsnokkel": "string",
+      "Fakultet": "string",
+      "Fakultetsnavn": "string",
+      "Institutt": "string",
+      "Instituttnavn": "string",
+      "Koststed": "string",
+      "Koststednavn": "string",
+      "Koststedtype": "string"
+    },
+    "DimPositionGroup.csv": {
+      "Stillingsgruppe": "string",
+      "Stillingsgruppenavn": "string",
+      "Stillingskategori": "string"
+    },
+    "DimProject.csv": {
+      "Prosjekt": "string",
+      "Prosjektnavn": "string",
+      "Finansieringstype": "string",
+      "Finansieringskilde": "string",
+      "Prosjektkategori": "string"
+    },
+    "DimStudyProgram.csv": {
+      "Studieprogram": "string",
+      "Studieprogramnavn": "string",
+      "Studienivaa": "string",
+      "NormerteStudiepoeng": "integer",
+      "Institutt": "string",
+      "Fakultet": "string"
+    },
+    "FactAction.csv": {
+      "TiltakID": "string",
+      "Organisasjonsnokkel": "string",
+      "Prosjekt": "string",
+      "Konto": "integer",
+      "Avviksarsak": "string",
+      "Tiltaksbeskrivelse": "string",
+      "AnsvarligRolle": "string",
+      "StartDatoNokkel": "integer",
+      "FristDatoNokkel": "integer",
+      "ForventetEffekt": "float",
+      "RealisertEffekt": "float",
+      "Status": "string",
+      "Prioritet": "string",
+      "Sannsynlighet": "float"
+    },
+    "FactBudget.csv": {
+      "DatoNokkel": "integer",
+      "Organisasjonsnokkel": "string",
+      "Konto": "integer",
+      "Prosjekt": "string",
+      "BudsjettBelop": "float",
+      "Scenario": "string"
+    },
+    "FactForecast.csv": {
+      "DatoNokkel": "integer",
+      "Organisasjonsnokkel": "string",
+      "Konto": "integer",
+      "Prosjekt": "string",
+      "Versjon": "string",
+      "ForecastBelop": "float",
+      "Datastatus": "string",
+      "Sannsynlighet": "float",
+      "Kommentar": "string"
+    },
+    "FactFTE.csv": {
+      "DatoNokkel": "integer",
+      "Organisasjonsnokkel": "string",
+      "Stillingsgruppe": "string",
+      "Aarsverk": "float",
+      "FagligeAarsverk": "float",
+      "Scenario": "string"
+    },
+    "FactGL.csv": {
+      "Bilag": "string",
+      "DatoNokkel": "integer",
+      "Organisasjonsnokkel": "string",
+      "Konto": "integer",
+      "Prosjekt": "string",
+      "Belop_signert": "float",
+      "Tekst": "string",
+      "Datakilde": "string"
+    },
+    "FactStudyPoints.csv": {
+      "DatoNokkel": "integer",
+      "Organisasjonsnokkel": "string",
+      "Studieprogram": "string",
+      "RegistrerteStudenter": "integer",
+      "PlanlagteStudiepoeng": "integer",
+      "AvlagteStudiepoeng": "float",
+      "SPE60": "float",
+      "BestattAndel": "float"
+    },
+    "Relationships.csv": {
+      "FraTabell": "string",
+      "FraKolonne": "string",
+      "TilTabell": "string",
+      "TilKolonne": "string",
+      "Kardinalitet": "string",
+      "Kryssfiltrering": "string",
+      "Status": "string"
+    }
+  },
+  "relationship_summary": {
+    "relationship_count": 22,
+    "valid": true,
+    "issues": []
+  },
+  "metrics": {
+    "actual_total": 10617128.18999128,
+    "budget_total": 10747732.819990624,
+    "forecast_total": 145015843.77001166,
+    "fte_total": 15390.210000000025,
+    "variance_to_budget": -130604.6299993433,
+    "variance_to_forecast": -134398715.58002037
+  },
+  "forecast_snapshot": {
+    "actual_vs_budget_pct": 98.784816926632,
+    "actual_vs_forecast_pct": 7.321357386872533,
+    "forecast_gap": 134398715.58002037
+  },
+  "prognosis": {
+    "baseline": {
+      "actual_total": 10617128.18999128,
+      "expected_total": 145015843.77001166,
+      "variance_vs_budget": -130604.6299993433,
+      "scenario": "baseline"
+    },
+    "conservative": {
+      "actual_total": 10617128.18999128,
+      "expected_total": 133414576.26841074,
+      "variance_vs_budget": 406782.01100018807,
+      "scenario": "conservative"
+    },
+    "optimistic": {
+      "actual_total": 10617128.18999128,
+      "expected_total": 156617111.2716126,
+      "variance_vs_budget": -345559.28639915586,
+      "scenario": "optimistic"
+    }
+  },
+  "prescriptions": [
+    {
+      "title": "Reduce cost leakage",
+      "description": "Tighten discretionary spending and focus on the highest-impact budget lines.",
+      "expected_result": "Reduce gap to budget by 10-20% within the next cycle.",
+      "impact_score": 0.82
+    },
+    {
+      "title": "Prioritize revenue and forecast recovery",
+      "description": "Target the biggest forecast gaps and focus resource allocation on growth levers.",
+      "expected_result": "Lift actual results toward forecast by improving conversion and throughput.",
+      "impact_score": 0.76
+    },
+    {
+      "title": "Create scenario-based contingency plan",
+      "description": "Run a conservative, neutral, and optimistic plan above the current baseline.",
+      "expected_result": "Improve decision resilience and reduce downside risk in the next planning cycle.",
+      "impact_score": 0.68
+    }
+  ],
+  "report": "# Data Analytics Report\n\n## Dataset overview\n\n- DimAccount.csv: 46 rows, 8 columns\n- DimDate.csv: 730 rows, 7 columns\n- DimForecastVersion.csv: 4 rows, 3 columns\n- DimGlossary.csv: 60 rows, 9 columns\n- DimOrganization.csv: 40 rows, 8 columns\n- DimPositionGroup.csv: 5 rows, 3 columns\n- DimProject.csv: 6 rows, 5 columns\n- DimStudyProgram.csv: 36 rows, 6 columns\n- FactAction.csv: 21 rows, 14 columns\n- FactBudget.csv: 17760 rows, 6 columns\n- FactForecast.csv: 71040 rows, 9 columns\n- FactFTE.csv: 1200 rows, 6 columns\n- FactGL.csv: 35760 rows, 8 columns\n- FactStudyPoints.csv: 432 rows, 8 columns\n- Relationships.csv: 22 rows, 7 columns\n\n## Schema summary\n\n- DimAccount.csv: Konto: integer, StandardKonto3: integer, Kontonavn: string, Kontoklasse: integer, Kontogruppe: integer, Kontotype: string, SRS_regnskapslinje: string, AktuellFor: string\n- DimDate.csv: Dato: string, DatoNokkel: integer, Aar: integer, Kvartal: string, MaanedNr: integer, AarMaaned: string, MaanedStart: string\n- DimForecastVersion.csv: Versjon: string, Versjonsnavn: string, Sortering: integer\n- DimGlossary.csv: BegrepID: integer, Begrep: string, FulltNavn: string, Kategori: string, Definisjon: string, PraktiskTolkning: string, FormelDAX: string, RolleKontekst: string, RelevantRapport: string\n- DimOrganization.csv: Organisasjonsnokkel: string, Fakultet: string, Fakultetsnavn: string, Institutt: string, Instituttnavn: string, Koststed: string, Koststednavn: string, Koststedtype: string\n- DimPositionGroup.csv: Stillingsgruppe: string, Stillingsgruppenavn: string, Stillingskategori: string\n- DimProject.csv: Prosjekt: string, Prosjektnavn: string, Finansieringstype: string, Finansieringskilde: string, Prosjektkategori: string\n- DimStudyProgram.csv: Studieprogram: string, Studieprogramnavn: string, Studienivaa: string, NormerteStudiepoeng: integer, Institutt: string, Fakultet: string\n- FactAction.csv: TiltakID: string, Organisasjonsnokkel: string, Prosjekt: string, Konto: integer, Avviksarsak: string, Tiltaksbeskrivelse: string, AnsvarligRolle: string, StartDatoNokkel: integer, FristDatoNokkel: integer, ForventetEffekt: float, RealisertEffekt: float, Status: string, Prioritet: string, Sannsynlighet: float\n- FactBudget.csv: DatoNokkel: integer, Organisasjonsnokkel: string, Konto: integer, Prosjekt: string, BudsjettBelop: float, Scenario: string\n- FactForecast.csv: DatoNokkel: integer, Organisasjonsnokkel: string, Konto: integer, Prosjekt: string, Versjon: string, ForecastBelop: float, Datastatus: string, Sannsynlighet: float, Kommentar: string\n- FactFTE.csv: DatoNokkel: integer, Organisasjonsnokkel: string, Stillingsgruppe: string, Aarsverk: float, FagligeAarsverk: float, Scenario: string\n- FactGL.csv: Bilag: string, DatoNokkel: integer, Organisasjonsnokkel: string, Konto: integer, Prosjekt: string, Belop_signert: float, Tekst: string, Datakilde: string\n- FactStudyPoints.csv: DatoNokkel: integer, Organisasjonsnokkel: string, Studieprogram: string, RegistrerteStudenter: integer, PlanlagteStudiepoeng: integer, AvlagteStudiepoeng: float, SPE60: float, BestattAndel: float\n- Relationships.csv: FraTabell: string, FraKolonne: string, TilTabell: string, TilKolonne: string, Kardinalitet: string, Kryssfiltrering: string, Status: string\n\n## Relationship validation\n\n- Relationship count: 22\n- Valid: True\n\n## KPI summary\n\n- Actual total: 10617128.19\n- Budget total: 10747732.82\n- Forecast total: 145015843.77\n- Variance to budget: -130604.63\n- Variance to forecast: -134398715.58\n- FTE total: 15390.21\n- Actual vs budget: 98.78%\n- Actual vs forecast: 7.32%"
+}
