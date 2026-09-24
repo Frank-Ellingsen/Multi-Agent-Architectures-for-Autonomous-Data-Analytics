@@ -26,11 +26,23 @@ from multi_agent_analytics.workflow import DEFAULT_SKILLS  # noqa: E402
 app = Flask(__name__, static_folder='static')
 
 
+@app.before_request
+def handle_options_preflight():
+    if request.method == 'OPTIONS':
+        res = app.make_default_options_response()
+        res.headers['Access-Control-Allow-Origin'] = '*'
+        res.headers['Access-Control-Allow-Headers'] = '*'
+        res.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        res.headers['Access-Control-Allow-Private-Network'] = 'true'
+        return res
+
+
 @app.after_request
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-Api-Key, X-Provider, X-Model, X-Endpoint'
+    response.headers['Access-Control-Allow-Headers'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response.headers['Access-Control-Allow-Private-Network'] = 'true'
     return response
 
 

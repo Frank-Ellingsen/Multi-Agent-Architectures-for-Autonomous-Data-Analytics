@@ -52,7 +52,7 @@ def check_llm_connection(
             api_key=key,
             model=model_name,
             base_url=base_url,
-            max_tokens=10,
+            max_tokens=150,
         )
         return {
             'ok': True,
@@ -121,12 +121,16 @@ def _call_gemini(
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
     
     contents = [{"role": "user", "parts": [{"text": prompt}]}]
+    generation_config: dict[str, Any] = {
+        "temperature": temperature,
+        "maxOutputTokens": max_tokens,
+    }
+    if max_tokens <= 200:
+        generation_config["thinkingConfig"] = {"thinkingBudget": 0}
+
     payload: dict[str, Any] = {
         "contents": contents,
-        "generationConfig": {
-            "temperature": temperature,
-            "maxOutputTokens": max_tokens,
-        },
+        "generationConfig": generation_config,
     }
     if system_instruction:
         payload["systemInstruction"] = {
