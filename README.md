@@ -27,18 +27,19 @@ For the complete catalog of specifications, see [skills/README.md](skills/README
 
 ---
 
-## Features
+## Key Features
 
-- **30 Modular Skill Specifications:** Standardized operational contracts with typed inputs, outputs, domain rules, guardrails, and definitions of done.
-- **Local-First Analytical SQL:** High-speed in-memory analytics using **DuckDB** (with SQLite fallback) over raw CSV files.
+- **30 Modular Skill Specifications:** Standardized operational contracts with typed YAML inputs, outputs, domain rules, guardrails, and definitions of done.
+- **Local-First Analytical SQL:** High-speed in-memory analytics using **DuckDB** (with SQLite fallback) executing queries directly over raw CSV files.
 - **Multi-Provider LLM Integration:** Autonomous executive decision story generation supporting:
   - **Google Gemini** (`gemini-1.5-flash`, `gemini-1.5-pro`)
   - **OpenAI** (`gpt-4o`, `gpt-4o-mini`)
-  - **Anthropic Claude** (`claude-3-5-sonnet`)
-  - **Local Ollama / LM Studio** (Local-first, no external API keys or cloud dependencies needed)
-- **Tufte Data-Ink UI:** Clean, clutter-free web studio with no vertical gridlines, right-aligned tabular numbers, and muted palettes with active variance alerts.
+  - **Anthropic Claude** (`claude-3-5-sonnet-20241022`)
+  - **Local Ollama / LM Studio** (Local-first, privacy-preserving, zero external API keys or cloud dependencies needed)
+- **Tufte Data-Ink UI:** Clean, clutter-free web studio with no vertical gridlines, right-aligned tabular numbers, direct labeling, and muted palettes with active variance alerts.
 - **In-Browser API Key Management:** Users can input, test, securely persist (`localStorage`), and switch API keys directly from the Web interface.
 - **Full Containerization:** Turnkey Docker and Docker Compose environment with non-root security, health checks, and volume mounts.
+- **Deterministic Governance:** Red-Amber-Green (RAG) thresholds and accounting reconciliations are strictly enforced by deterministic logic, eliminating LLM hallucination.
 
 ---
 
@@ -109,6 +110,60 @@ Users can configure API keys directly in the top panel of `index.html`:
 
 ---
 
+## Verified Benchmark on Sample ERP Dataset (`test_data`)
+
+The repository includes a comprehensive 15-table real-world dataset in `test_data/`. You can evaluate the entire pipeline with:
+
+```bash
+python scripts/evaluate_dataset.py
+```
+
+### Benchmark Summary:
+* **Ingestion Footprint**: 15 tables, **127,162 total rows** (semicolon-delimited, UTF-8).
+* **Referential Integrity**: 22 star-schema relationships checked via `Relationships.csv` $\rightarrow$ **100% valid with 0 orphan keys**.
+* **Financial Controlling KPIs**:
+  * **Actual Spend (`FactGL`)**: `10,617,128.19 NOK`
+  * **Approved Budget (`FactBudget`)**: `10,747,732.82 NOK`
+  * **Latest Forecast (`FactForecast`)**: `145,015,843.77 NOK`
+  * **Variance to Budget**: `-130,604.63 NOK` (**Favorable: 1.22% under budget**)
+  * **Total Labor Run-Rate**: `15,390.2 FTE` across 12 monthly accounting periods.
+* **Prognostic Scenarios**:
+  * **Baseline EAC**: `145,015,843.77 NOK` (Variance vs Budget: `-130,604.63 NOK`)
+  * **Conservative EAC**: `133,414,576.27 NOK` (Variance vs Budget: `+406,782.01 NOK` overrun risk)
+  * **Optimistic EAC**: `156,617,111.27 NOK` (Variance vs Budget: `-345,559.29 NOK`)
+
+---
+
+## REST API Reference
+
+The backend exposes a modular Flask REST API on port `8000`:
+
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `GET /` | `GET` | Serves the interactive Web Studio interface |
+| `GET /api/health` | `GET` | Health check endpoint returning service status, version, and skill count |
+| `GET /api/skills` | `GET` | Returns catalog of all 30 skills organized by phase with descriptions |
+| `POST /api/analyze` | `POST` | Ingests uploaded CSV files, validates relationships, computes KPIs, and generates prognostics |
+| `POST /api/demo-data` | `POST` | Instantaneously executes full analysis over the built-in `test_data` dataset |
+| `POST /api/ai/test-key` | `POST` | Tests API key authentication and network connectivity for Gemini, OpenAI, Claude, or Ollama |
+| `POST /api/ai/narrative` | `POST` | Generates a Tufte-compliant executive decision story using the configured LLM provider |
+
+---
+
+## Command Line Interface (CLI)
+
+You can run stages of the workflow directly from the command line:
+
+```bash
+# Print workflow skills in sequence
+python -m multi_agent_analytics --start 1 --end 5
+
+# Generate markdown report for a dataset
+python -m multi_agent_analytics --data-dir test_data --report
+```
+
+---
+
 ## Validation & Testing
 
 Run the test suite and verify the 30-skill catalog:
@@ -150,6 +205,9 @@ python -m pytest -v
 │       ├── reporting.py        # Markdown diagnostic report builder
 │       ├── schema.py           # Physical schema & column type inference
 │       └── workflow.py         # 30-skill workflow definitions and runner
+├── scripts/
+│   ├── evaluate_dataset.py     # Standalone dataset evaluation and DuckDB drilldown runner
+│   └── validate_skills.py     # Skill catalog validation script
 ├── skills/                     # The 30 modular autonomous skill specifications
 │   ├── 01_inspect_source.md ... 30_publish_reports.md
 │   ├── reporting-expert-SKILL.md
