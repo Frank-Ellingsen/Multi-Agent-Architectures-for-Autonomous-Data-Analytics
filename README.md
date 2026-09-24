@@ -93,6 +93,34 @@ python -m multi_agent_analytics --start 1 --end 5
 
 This prints the first five stages of the workflow and confirms the runtime can load the skill catalog.
 
+## Streamlit app
+
+Run the analytics app with file upload, diagnostics, prognostics, and prescriptions:
+
+```bash
+streamlit run app.py
+```
+
+The app lets users:
+
+- upload CSV files
+- run diagnostics on the dataset
+- view a menu for prognostics
+- generate prescriptions and expected results
+
+## Browser app backed by Python
+
+The repository also includes a browser interface that sends uploaded CSV files to the
+existing Python analytics functions:
+
+```bash
+python api.py
+```
+
+Then open http://127.0.0.1:8000. The `/api/analyze` endpoint runs dataset inspection,
+schema and relationship validation, KPI calculation, prognosis generation, prescriptions,
+and Markdown report generation on the uploaded files.
+
 ## Validation
 
 A lightweight validation script checks that the expected skill files exist in the repository.

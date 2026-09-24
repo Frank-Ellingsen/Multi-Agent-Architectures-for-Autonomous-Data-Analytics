@@ -1,3 +1,6 @@
+from pathlib import Path
+
+from multi_agent_analytics.dataset import load_dataset_summary
 from multi_agent_analytics.workflow import DEFAULT_SKILLS, build_workflow, run_workflow
 
 
@@ -24,3 +27,12 @@ def test_run_workflow_executes_all_skills():
         {"id": "01_inspect_source", "title": "Inspect Source"},
         {"id": "02_parse_tabular", "title": "Parse Tabular"},
     ]
+
+
+def test_dataset_summary_reads_semicolon_data():
+    root = Path(__file__).resolve().parents[1] / 'test_data'
+    summary = load_dataset_summary(root)
+
+    assert 'DimDate.csv' in summary
+    assert summary['DimDate.csv']['row_count'] == 730
+    assert summary['DimDate.csv']['column_count'] == 7

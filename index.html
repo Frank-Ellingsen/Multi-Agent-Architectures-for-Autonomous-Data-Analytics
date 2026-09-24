@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Agent Analytics Studio</title>
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>Analytics Studio</h1>
+        <nav class="nav">
+          <button class="tab active" data-target="upload-panel">
+            Upload & Diagnostics
+          </button>
+          <button class="tab" data-target="prognostics-panel">
+            Prognostics
+          </button>
+          <button class="tab" data-target="prescriptions-panel">
+            Prescriptions
+          </button>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section id="upload-panel" class="panel active">
+          <div class="card upload-card">
+            <h2>Upload CSV files</h2>
+            <input id="csvFiles" type="file" accept=".csv" multiple />
+            <button id="runDiagnosticsBtn" class="primary-btn">
+              Run diagnostics
+            </button>
+          </div>
+
+          <div class="card">
+            <h3>Dataset summary</h3>
+            <div id="datasetSummary" class="summary-grid"></div>
+          </div>
+
+          <div class="card">
+            <h3>Diagnostics report</h3>
+            <div id="diagnosticsReport" class="report-block"></div>
+          </div>
+        </section>
+
+        <section id="prognostics-panel" class="panel">
+          <div class="card">
+            <h2>Prognostics</h2>
+            <div id="prognosticsTable"></div>
+          </div>
+        </section>
+
+        <section id="prescriptions-panel" class="panel">
+          <div class="card">
+            <h2>Recommended actions</h2>
+            <div id="prescriptionsList"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="static/app.js"></script>
+  </body>
+</html>
