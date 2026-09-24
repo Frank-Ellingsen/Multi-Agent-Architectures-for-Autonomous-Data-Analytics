@@ -1,0 +1,13 @@
+# Core Backend & Web Frameworks
+flask>=3.0.0
+streamlit>=1.36.0
+gunicorn>=22.0.0; sys_platform != "win32"
+
+# Analytical Database Engine (Local-first)
+duckdb>=1.0.0
+
+# Optional HTTP and Client Utilities
+requests>=2.31.0
+
+# Testing & Quality
+pytest>=8.0.0

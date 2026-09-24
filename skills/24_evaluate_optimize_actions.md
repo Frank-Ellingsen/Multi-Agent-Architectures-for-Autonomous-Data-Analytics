@@ -2,36 +2,59 @@
 
 ## Purpose
 
-Score candidate actions on value, risk, feasibility, and expected impact.
+Score, filter, and optimize candidate actions using multi-criteria decision analysis (Impact, Feasibility, Cost, Risk, Time-to-Benefit), selecting the optimal portfolio of actions that closes the financial gap while minimizing operational friction.
+
+## Trigger conditions
+
+- Action pool generated (`23_generate_candidate_actions.md`).
+- Multi-intervention trade-off analysis required for management sign-off.
+
+## Primary agent
+
+**Optimization & Decision Scoring Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+evaluate_actions_request:
+  candidate_actions: list[object]
+  gap_target: float # e.g. 500000.0 NOK
+  budget_cap_for_implementation: float
+  scoring_weights:
+    net_financial_impact: 0.40
+    feasibility_speed: 0.30
+    low_execution_risk: 0.30
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+evaluate_actions_result:
+  scored_actions:
+    - action_id: string
+      title: string
+      impact_score: float # 0.0 - 1.0 composite
+      expected_result: string
+      net_benefit: float
+      rank: integer
+      status: "recommended" | "reserve" | "rejected"
+  portfolio_summary:
+    total_net_recovery: float
+    total_implementation_cost: float
+    gap_closure_percentage: float
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Composite Scoring:** Calculate normalized utility scores weighting net financial return, implementation speed, and risk.
+2. **Knapsack / Portfolio Optimization:** Select the highest-impact combination of actions subject to implementation budget and time constraints.
+3. **Executive Ranking:** Rank recommendations clearly so leadership can approve the package in tiers.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Show both expected benefit and required cost/risk for every single recommendation.
+- Explicitly reject actions where implementation cost exceeds expected recovery.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Ranked portfolio of optimized actions with composite impact scores and quantified recovery totals.

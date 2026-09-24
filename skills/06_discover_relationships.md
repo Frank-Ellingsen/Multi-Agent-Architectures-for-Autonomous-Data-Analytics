@@ -2,36 +2,54 @@
 
 ## Purpose
 
-Identify primary keys, join keys, and logical relationships between datasets and entities.
+Discover, validate, and document foreign key relationships and dimensional associations between fact tables (`FactGL`, `FactBudget`, `FactForecast`, `FactFTE`) and dimension tables (`DimDate`, `DimAccount`, `DimOrganization`, `DimProject`).
+
+## Trigger conditions
+
+- Schema inference completed (`05_infer_schema.md`).
+- Explicit `Relationships.csv` file provided for verification or automatic join discovery required.
+
+## Primary agent
+
+**Relational Modeler Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+relationship_discovery_request:
+  table_schemas: map[table_name, columns]
+  declared_relationships_file: string | null # e.g. "Relationships.csv"
+  max_unmatched_ratio: float # e.g. 0.001
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+relationship_discovery_result:
+  relationships:
+    - from_table: string
+      from_column: string
+      to_table: string
+      to_column: string
+      cardinality: "many-to-one" | "one-to-one" | "many-to-many"
+      orphan_keys_count: integer
+      match_rate_pct: float
+      valid: boolean
+  model_topology: star | snowflake | constellation
+  integrity_issues: list[string]
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Declared Relationship Verification:** Validate whether foreign keys in fact tables match corresponding dimension primary keys.
+2. **Orphan Key Detection:** Flag transactions in fact tables referencing non-existent accounts, departments, or project codes.
+3. **Cardinality Verification:** Confirm that dimensions on the "one" side of the relationship contain strictly unique primary keys.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Never silently drop fact records with orphan foreign keys; report and quarantine them.
+- Avoid many-to-many relationships in the analytical core without bridge tables.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Every declared or discovered foreign key relationship is tested for referential integrity.

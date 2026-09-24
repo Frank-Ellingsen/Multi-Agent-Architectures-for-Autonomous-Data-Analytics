@@ -2,36 +2,62 @@
 
 ## Purpose
 
-Read document-based inputs such as PDFs, scans, and unstructured reports, extracting numeric and textual facts.
+Extract unstructured context, management commentaries, board resolutions, contract terms, milestone dates, and audit notes from business documents (PDFs, Word documents, text notes) to enrich quantitative datasets with qualitative evidence.
+
+## Trigger conditions
+
+- Monthly project status reports with narrative progress notes.
+- Vendor contracts or change orders containing milestone schedules, liquidated damages, or billing terms.
+- Auditor notes explaining year-end accounting adjustments.
+
+## Primary agent
+
+**Document Understanding Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+document_extract_request:
+  document_path: string
+  document_type: pdf | docx | txt | markdown
+  target_entities:
+    - entity_type: milestone | contract_value | risk_note | variation_order
+      expected_keys: list[string]
+  reporting_period: string
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+document_extract_result:
+  document_metadata:
+    title: string
+    author: string
+    date_published: string
+    page_count: integer
+  extracted_entities:
+    - type: string
+      key: string
+      value: string | number
+      confidence: float
+      source_reference:
+        page_number: integer
+        section_heading: string
+        verbatim_excerpt: string
+  validation_status: pass | review_required
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Entity Extraction:** Pull explicit monetary values, project codes, revision dates, and cost variance explanations.
+2. **Context Linking:** Map qualitative explanations to specific cost centers, projects, or GL accounts.
+3. **Traceability:** Maintain verbatim text quotations and page numbers for audit trails.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Never fabricate values not present in the document.
+- If a qualitative statement is ambiguous or contradicts the general ledger, flag it as an unresolved variance.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- All target qualitative entities are extracted with verbatim references and confidence scores.

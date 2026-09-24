@@ -16,12 +16,13 @@ def _normalize_numeric(value: str) -> float | None:
     if text.lower() in {'null', 'none', 'n/a', 'na'}:
         return None
     try:
-        return float(text.replace('.', '').replace(',', '.'))
+        if '.' in text and ',' in text:
+            text = text.replace('.', '').replace(',', '.')
+        elif ',' in text:
+            text = text.replace(',', '.')
+        return float(text)
     except ValueError:
-        try:
-            return float(text)
-        except ValueError:
-            return None
+        return None
 
 
 def infer_type(values: list[str]) -> str:

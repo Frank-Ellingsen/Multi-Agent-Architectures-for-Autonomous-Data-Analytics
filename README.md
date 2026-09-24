@@ -1,134 +1,164 @@
 # Multi-Agent Architectures for Autonomous Data Analytics
 
-A GitHub-ready repository for a multi-agent analytics workflow that converts fragmented business inputs into decision-ready insights. The design is intentionally modular: each skill is a discrete responsibility that an orchestrator, agent team, or human analyst can run in sequence.
+A modular, production-ready framework for multi-agent autonomous data analytics, financial controlling, and project forecasting. This architecture converts raw enterprise data (general ledgers, budget workbooks, forecast submissions, project registers, timesheets) into decision-ready executive intelligence through a chain of 30 specialized operational skills.
 
-## Why this project exists
+---
 
-Most organizations struggle with analytics workflows spread across spreadsheets, PDFs, ERP exports, and operational systems. This project defines a repeatable architecture for intelligence agents to:
+## Architecture & Workflow Overview
 
-- inspect source material
-- parse tabular data and spreadsheets
-- extract document facts
-- infer schema and relationships
-- profile quality and normalize values
-- build an analytical model
-- calculate KPI and trend metrics
-- identify drivers, anomalies, and variance
-- prepare forecasts and scenarios
-- evaluate actions and publish a decision-ready story
-
-## Workflow overview
+The analytics workflow progresses across 6 distinct phases:
 
 ```text
-source data -> inspect -> parse -> normalize -> model -> analyze -> forecast -> optimize -> decide -> publish
+Phase I: Ingestion & Inspection (Skills 01–04)
+   └── Inspect source footprints, parse delimited files & spreadsheets, extract qualitative document facts.
+Phase II: Schema & Modeling (Skills 05–10)
+   └── Infer physical schema, validate foreign keys, audit data quality, normalize, build star schema, execute DuckDB SQL.
+Phase III: Diagnostics & Metrics (Skills 11–16)
+   └── Calculate KPIs (Actual, Budget, Forecast, EAC, ETC, FTE), analyze variance bridges, detect anomalies, apply status RAG.
+Phase IV: Prognostics & Simulation (Skills 17–22)
+   └── Engineer time-series features, backtest forecasting models, simulate scenarios (P10/P50/P90), run Monte Carlo & Tornado sensitivity.
+Phase V: Prescriptions & Optimization (Skills 23–26)
+   └── Formulate candidate actions, score portfolios across ROI and risk, reconcile new pro-forma balance, index evidence vouchers.
+Phase VI: Storytelling & Publishing (Skills 27–30)
+   └── Select Tufte data-ink visuals, build executive BLUF narrative, independent validator audit gate, publish accessible HTML reports.
 ```
 
-## Repository structure
+For the complete catalog of specifications, see [skills/README.md](skills/README.md).
 
-```text
-.
-├── README.md
-├── LICENSE
-├── .gitignore
-├── .github/
-│   └── workflows/
-│       └── validate-skills.yml
-├── docs/
-│   └── roadmap.md
-├── scripts/
-│   └── validate_skills.py
-├── skills/
-│   ├── README.md
-│   ├── 01_inspect_source.md
-│   ├── 02_parse_tabular.md
-│   ├── 03_parse_excel.md
-│   ├── 04_extract_document.md
-│   ├── 05_infer_schema.md
-│   ├── 06_discover_relationships.md
-│   ├── 07_profile_quality.md
-│   ├── 08_normalize_data.md
-│   ├── 09_build_analytical_model.md
-│   ├── 10_execute_analytical_sql.md
-│   ├── 11_calculate_kpis.md
-│   ├── 12_analyze_variance.md
-│   ├── 13_analyze_trends.md
-│   ├── 14_identify_drivers.md
-│   ├── 15_detect_anomalies.md
-│   ├── 16_apply_status_rag.md
-│   ├── 17_prepare_forecast_dataset.md
-│   ├── 18_select_and_backtest_model.md
-│   ├── 19_generate_forecast.md
-│   ├── 20_generate_scenarios.md
-│   ├── 21_run_monte_carlo.md
-│   ├── 22_run_sensitivity.md
-│   ├── 23_generate_candidate_actions.md
-│   ├── 24_evaluate_optimize_actions.md
-│   ├── 25_calculate_new_balance.md
-│   ├── 26_retrieve_evidence.md
-│   ├── 27_select_build_visuals.md
-│   ├── 28_build_decision_story.md
-│   ├── 29_validate_results.md
-│   └── 30_publish_reports.md
-└──
-```
+---
 
-## Getting started
+## Features
 
-1. Review the workflow in [skills/README.md](skills/README.md).
-2. Move through the skills in order from source inspection to publishing.
-3. Adapt each stage to your own data, system architecture, or agent orchestration platform.
+- **30 Modular Skill Specifications:** Standardized operational contracts with typed inputs, outputs, domain rules, guardrails, and definitions of done.
+- **Local-First Analytical SQL:** High-speed in-memory analytics using **DuckDB** (with SQLite fallback) over raw CSV files.
+- **Multi-Provider LLM Integration:** Autonomous executive decision story generation supporting:
+  - **Google Gemini** (`gemini-1.5-flash`, `gemini-1.5-pro`)
+  - **OpenAI** (`gpt-4o`, `gpt-4o-mini`)
+  - **Anthropic Claude** (`claude-3-5-sonnet`)
+  - **Local Ollama / LM Studio** (Local-first, no external API keys or cloud dependencies needed)
+- **Tufte Data-Ink UI:** Clean, clutter-free web studio with no vertical gridlines, right-aligned tabular numbers, and muted palettes with active variance alerts.
+- **In-Browser API Key Management:** Users can input, test, securely persist (`localStorage`), and switch API keys directly from the Web interface.
+- **Full Containerization:** Turnkey Docker and Docker Compose environment with non-root security, health checks, and volume mounts.
 
-## Recommended use cases
+---
 
-- prompt library for multi-agent analytics systems
-- orchestration framework for autonomous business analysis
-- template for AI-assisted forecasting and decision support
-- playbook for data prep, analysis, and reporting
+## Quick Start: Running with Docker (Recommended)
 
-## Quick start
+To run the complete environment without installing Python packages locally:
 
+### 1. Clone & Configure Environment
 ```bash
-python -m multi_agent_analytics --start 1 --end 5
+git clone https://github.com/Frank-Ellingsen/Multi-Agent-Architectures-for-Autonomous-Data-Analytics.git
+cd Multi-Agent-Architectures-for-Autonomous-Data-Analytics
+
+# Optional: copy and set your LLM API keys in .env
+cp .env.example .env
 ```
 
-This prints the first five stages of the workflow and confirms the runtime can load the skill catalog.
-
-## Streamlit app
-
-Run the analytics app with file upload, diagnostics, prognostics, and prescriptions:
-
+### 2. Launch Services with Docker Compose
 ```bash
-streamlit run app.py
+docker compose up --build
 ```
 
-The app lets users:
+- **Web Studio & REST API:** Open [http://localhost:8000](http://localhost:8000)
+- **Streamlit Studio:** Open [http://localhost:8501](http://localhost:8501)
 
-- upload CSV files
-- run diagnostics on the dataset
-- view a menu for prognostics
-- generate prescriptions and expected results
+### 3. Alternative: Run Single Container
+```bash
+docker build -t multi-agent-analytics .
+docker run -p 8000:8000 -e GEMINI_API_KEY="your-key" multi-agent-analytics
+```
 
-## Browser app backed by Python
+---
 
-The repository also includes a browser interface that sends uploaded CSV files to the
-existing Python analytics functions:
+## Quick Start: Running Locally (Native Python)
 
+Requires **Python 3.10+**.
+
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Start the Web Studio & API
 ```bash
 python api.py
 ```
+Open [http://localhost:8000](http://localhost:8000) in your browser.
 
-Then open http://127.0.0.1:8000. The `/api/analyze` endpoint runs dataset inspection,
-schema and relationship validation, KPI calculation, prognosis generation, prescriptions,
-and Markdown report generation on the uploaded files.
+### 3. Start the Streamlit Analytics Studio (Optional)
+```bash
+streamlit run app.py
+```
+Open [http://localhost:8501](http://localhost:8501) in your browser.
 
-## Validation
+---
 
-A lightweight validation script checks that the expected skill files exist in the repository.
+## Configuring API Keys in the Web Studio
+
+Users can configure API keys directly in the top panel of `index.html`:
+
+1. Open [http://localhost:8000](http://localhost:8000).
+2. In the **Model & API Key Configuration** card:
+   - Select your provider: **Google Gemini**, **OpenAI**, **Anthropic Claude**, or **Local Ollama**.
+   - Input your API key (masked with an optional Show/Hide toggle).
+   - Click **Test Connection** to verify endpoint reachability.
+   - Click **Save Settings** to persist your key securely in your browser's `localStorage`.
+3. Click **Load Demo ERP Dataset** to immediately analyze the built-in 15-table test dataset.
+4. Go to **AI Executive Story** and click **Generate Decision Story** to synthesize an autonomous executive decision briefing!
+
+---
+
+## Validation & Testing
+
+Run the test suite and verify the 30-skill catalog:
 
 ```bash
+# Validate skill files
 python scripts/validate_skills.py
-python -m pytest -q
+
+# Run all 18 automated tests
+python -m pytest -v
 ```
+
+---
+
+## Repository Structure
+
+```text
+.
+├── Dockerfile                  # Production container definition (Python 3.11-slim, non-root)
+├── docker-compose.yml          # Web Studio (8000) and Streamlit (8501) compose definition
+├── .dockerignore               # Container build ignore rules
+├── .env.example                # Environment variables template
+├── requirements.txt            # Locked Python dependencies
+├── pyproject.toml              # Build system and project metadata
+├── index.html                  # Web Studio interface with API key configuration controls
+├── static/
+│   ├── app.js                  # Frontend client logic, API key storage & live chart rendering
+│   └── styles.css              # Edward Tufte Data-Ink compliant stylesheet
+├── api.py                      # Flask REST API backend (/api/analyze, /api/ai/*, /api/skills)
+├── app.py                      # Streamlit Analytics Studio alternative UI
+├── src/
+│   └── multi_agent_analytics/
+│       ├── ai_agent.py         # Multi-provider LLM client (Gemini, OpenAI, Anthropic, Ollama)
+│       ├── sql_engine.py       # Analytical SQL query engine with DuckDB & SQLite
+│       ├── analytics.py        # Financial controlling & KPI calculation functions
+│       ├── dataset.py          # Delimiter detection and tabular dataset summaries
+│       ├── decision.py         # Scenario prognosis and prescriptive action generators
+│       ├── relationships.py    # Star-schema referential integrity validator
+│       ├── reporting.py        # Markdown diagnostic report builder
+│       ├── schema.py           # Physical schema & column type inference
+│       └── workflow.py         # 30-skill workflow definitions and runner
+├── skills/                     # The 30 modular autonomous skill specifications
+│   ├── 01_inspect_source.md ... 30_publish_reports.md
+│   ├── reporting-expert-SKILL.md
+│   └── project-finance-ai-reporting-expert-skill/
+├── test_data/                  # Built-in demo ERP dataset (FactGL, FactBudget, FactForecast, etc.)
+└── tests/                      # Automated test suite (18 unit and integration tests)
+```
+
+---
 
 ## License
 

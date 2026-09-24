@@ -2,36 +2,67 @@
 
 ## Purpose
 
-Construct the conceptual analytical model that defines facts, dimensions, measures, and data flow.
+Construct an analytical dimensional model (Star Schema) linking business facts (`FactGL`, `FactBudget`, `FactForecast`, `FactFTE`) to shared conforming dimensions (`DimDate`, `DimAccount`, `DimOrganization`, `DimProject`) to enable high-speed OLAP slicing, metric aggregation, and drill-downs.
+
+## Trigger conditions
+
+- Cleaned and normalized datasets prepared.
+- Analytical querying layer or BI reporting model setup.
+
+## Primary agent
+
+**Dimensional Modeling Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+analytical_model_request:
+  facts:
+    - name: FactGL
+      grain: transaction
+      value_columns: [Belop_signert]
+    - name: FactBudget
+      grain: monthly_account
+      value_columns: [BudsjettBelop]
+    - name: FactForecast
+      grain: monthly_version_account
+      value_columns: [ForecastBelop]
+    - name: FactFTE
+      grain: monthly_org_position
+      value_columns: [Aarsverk]
+  conformed_dimensions:
+    - DimDate
+    - DimAccount
+    - DimOrganization
+    - DimProject
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+analytical_model_result:
+  model_name: string
+  fact_tables: list[string]
+  dimension_tables: list[string]
+  star_schema_relationships: list[object]
+  semantic_measures:
+    - Actual_Amount: "SUM(FactGL.Belop_signert)"
+    - Budget_Amount: "SUM(FactBudget.BudsjettBelop)"
+    - Forecast_Amount: "SUM(FactForecast.ForecastBelop)"
+    - FTE_Count: "SUM(FactFTE.Aarsverk)"
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Conformed Dimensions:** Ensure `DimDate`, `DimAccount`, and `DimOrganization` serve as the single source of truth across all fact tables.
+2. **Grain Alignment:** Reconcile differences in time grain (e.g. daily transactions in GL vs monthly figures in Budget/Forecast).
+3. **Semantic Layer Definition:** Define standardized measure definitions for downstream SQL and DAX queries.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Never combine fact tables with different grains into a single flat table without explicit aggregation.
+- All dimensional keys must be validated against dimension primary keys.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- The star schema model is fully specified and ready for in-memory DuckDB or SQL execution.

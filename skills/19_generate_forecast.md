@@ -2,36 +2,54 @@
 
 ## Purpose
 
-Generate a forecast series and narrative summary of expected outcomes.
+Generate forward-looking point estimates and prediction intervals (P10, P50, P90) across the planning horizon, producing full-year Estimate at Completion (EAC) projections and expected budget gap trajectories.
+
+## Trigger conditions
+
+- Validated model selected (`18_select_and_backtest_model.md`).
+- Monthly or quarterly forecast cycle execution.
+
+## Primary agent
+
+**Forecasting Execution Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+generate_forecast_request:
+  selected_model: string
+  horizon_months: 12
+  confidence_intervals: [0.80, 0.95] # P10/P90, P2.5/P97.5
+  known_future_commitments: map[period, committed_amount]
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+generate_forecast_result:
+  forecast_series:
+    - period: string
+      point_estimate: float # P50
+      lower_bound_p10: float
+      upper_bound_p90: float
+  annual_totals:
+    actual_year_to_date: float
+    forecast_remaining_to_complete: float # ETC
+    estimate_at_completion: float # EAC = YTD + ETC
+    variance_vs_approved_budget: float
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Horizon Projection:** Generate monthly forward estimates for the remaining fiscal periods.
+2. **Confidence Intervals:** Calculate prediction bands reflecting historical volatility and forecast decay over distance.
+3. **EAC Assembly:** Combine actuals incurred through close date with forecasted remaining periods to calculate EAC.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Ensure the transition between the last actual period and first forecast period does not exhibit an artificial step discontinuity.
+- Express uncertainty clearly: never present a point estimate without its surrounding interval.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Completed forward-looking forecast with P10, P50, and P90 intervals and calculated full-year EAC.

@@ -2,36 +2,59 @@
 
 ## Purpose
 
-Audit completeness, duplicates, missing values, invalid formats, and anomalous patterns.
+Profile data quality across fact and dimension tables, auditing completeness, uniqueness, value distributions, sign conventions (debit/credit), date ranges, and unexpected zero balances.
+
+## Trigger conditions
+
+- Prior to loading data into analytical models or calculating official reporting metrics.
+- Identifying accounting reconciliations errors or data pipeline failures.
+
+## Primary agent
+
+**Data Quality Auditor Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+profile_quality_request:
+  tables: list[string]
+  balance_check:
+    debit_credit_equality: boolean
+  tolerance_threshold: float # e.g. 0.01 NOK
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+profile_quality_result:
+  quality_score_overall: float # 0.0 - 1.0
+  table_assessments:
+    - table_name: string
+      total_rows: integer
+      duplicate_rows: integer
+      null_cells_count: integer
+      zero_value_transactions: integer
+      date_range: { min: string, max: string }
+      numeric_ranges: map[column_name, { min: float, max: float, sum: float }]
+  reconciliation:
+    debit_total: float
+    credit_total: float
+    imbalance: float
+    reconciles: boolean
+  critical_issues: list[string]
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Accounting Imbalance Detection:** Verify that total general ledger debits equal total credits or net signed amounts reconcile.
+2. **Duplicate Row Detection:** Identify duplicate journal entries or re-imported batch files.
+3. **Out-of-Period Postings:** Flag transactions posted outside active fiscal years or closed reporting periods.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Any financial data pipeline where debit minus credit != 0 must halt and raise a red audit alert.
+- Do not impute or invent financial transaction values.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Data quality profile generated with clear pass/fail indicators for completeness, consistency, and financial balance.

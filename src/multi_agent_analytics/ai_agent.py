@@ -1,0 +1,366 @@
+from __future__ import annotations
+
+import json
+import os
+import urllib.error
+import urllib.parse
+import urllib.request
+from typing import Any
+
+# Default recommended models per provider
+DEFAULT_MODELS: dict[str, str] = {
+    'gemini': 'gemini-1.5-flash',
+    'openai': 'gpt-4o-mini',
+    'anthropic': 'claude-3-5-sonnet-20241022',
+    'ollama': 'llama3.2',
+}
+
+DEFAULT_OLLAMA_ENDPOINT = 'http://localhost:11434'
+
+
+def get_default_model(provider: str) -> str:
+    return DEFAULT_MODELS.get(provider.lower().strip(), 'gemini-1.5-flash')
+
+
+def check_llm_connection(
+    provider: str,
+    api_key: str | None = None,
+    model: str | None = None,
+    base_url: str | None = None,
+) -> dict[str, Any]:
+    """Test connectivity and authentication for the specified LLM provider."""
+    provider_clean = (provider or 'gemini').lower().strip()
+    model_name = (model or get_default_model(provider_clean)).strip()
+
+    if api_key is not None:
+        key = api_key.strip()
+    else:
+        key = os.getenv(f"{provider_clean.upper()}_API_KEY", "").strip()
+
+    if provider_clean in {'gemini', 'openai', 'anthropic'} and not key:
+        return {
+            'ok': False,
+            'provider': provider_clean,
+            'error': f'Missing API key for {provider_clean.capitalize()}. Please input an API key.',
+        }
+
+    try:
+        response_text = call_llm(
+            prompt='Reply with the single word: "READY"',
+            system_instruction='You are a system health check assistant. Keep answers to 1 word.',
+            provider=provider_clean,
+            api_key=key,
+            model=model_name,
+            base_url=base_url,
+            max_tokens=10,
+        )
+        return {
+            'ok': True,
+            'provider': provider_clean,
+            'model': model_name,
+            'sample_response': response_text.strip(),
+            'message': f'Successfully connected to {provider_clean.capitalize()} ({model_name}).',
+        }
+    except Exception as exc:
+        return {
+            'ok': False,
+            'provider': provider_clean,
+            'model': model_name,
+            'error': str(exc),
+        }
+
+
+# Prevent pytest from treating check_llm_connection as a test if imported
+check_llm_connection.__test__ = False
+test_llm_connection = check_llm_connection
+test_llm_connection.__test__ = False
+
+
+def call_llm(
+    prompt: str,
+    system_instruction: str = '',
+    provider: str = 'gemini',
+    api_key: str | None = None,
+    model: str | None = None,
+    base_url: str | None = None,
+    max_tokens: int = 2048,
+    temperature: float = 0.2,
+) -> str:
+    """Dispatches prompt to the selected LLM provider using pure Python standard library HTTP."""
+    provider_clean = (provider or 'gemini').lower().strip()
+    model_name = (model or get_default_model(provider_clean)).strip()
+
+    if api_key is not None:
+        key = api_key.strip()
+    else:
+        key = os.getenv(f"{provider_clean.upper()}_API_KEY", "").strip()
+
+    if provider_clean == 'gemini':
+        return _call_gemini(prompt, system_instruction, key, model_name, max_tokens, temperature)
+    elif provider_clean == 'openai':
+        return _call_openai(prompt, system_instruction, key, model_name, base_url, max_tokens, temperature)
+    elif provider_clean == 'anthropic':
+        return _call_anthropic(prompt, system_instruction, key, model_name, max_tokens, temperature)
+    elif provider_clean == 'ollama':
+        return _call_ollama(prompt, system_instruction, model_name, base_url, max_tokens, temperature)
+    else:
+        raise ValueError(f"Unsupported LLM provider: {provider_clean}. Choose from gemini, openai, anthropic, ollama.")
+
+
+def _call_gemini(
+    prompt: str,
+    system_instruction: str,
+    api_key: str,
+    model: str,
+    max_tokens: int,
+    temperature: float,
+) -> str:
+    if not api_key:
+        raise ValueError("Gemini API key is required. Input your Gemini API key in settings.")
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+    
+    contents = [{"role": "user", "parts": [{"text": prompt}]}]
+    payload: dict[str, Any] = {
+        "contents": contents,
+        "generationConfig": {
+            "temperature": temperature,
+            "maxOutputTokens": max_tokens,
+        },
+    }
+    if system_instruction:
+        payload["systemInstruction"] = {
+            "parts": [{"text": system_instruction}]
+        }
+
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=45) as resp:
+            body = json.loads(resp.read().decode('utf-8'))
+            candidates = body.get('candidates', [])
+            if not candidates:
+                return "No response generated by Gemini."
+            parts = candidates[0].get('content', {}).get('parts', [])
+            return "".join(part.get('text', '') for part in parts)
+    except urllib.error.HTTPError as err:
+        err_msg = err.read().decode('utf-8', errors='replace')
+        try:
+            parsed = json.loads(err_msg)
+            err_msg = parsed.get('error', {}).get('message', err_msg)
+        except Exception:
+            pass
+        raise RuntimeError(f"Gemini API Error ({err.code}): {err_msg}")
+    except Exception as exc:
+        raise RuntimeError(f"Network error connecting to Gemini: {exc}")
+
+
+def _call_openai(
+    prompt: str,
+    system_instruction: str,
+    api_key: str,
+    model: str,
+    base_url: str | None,
+    max_tokens: int,
+    temperature: float,
+) -> str:
+    if not api_key:
+        raise ValueError("OpenAI API key is required. Input your OpenAI API key in settings.")
+
+    endpoint = (base_url or "https://api.openai.com/v1").rstrip('/') + "/chat/completions"
+    messages = []
+    if system_instruction:
+        messages.append({"role": "system", "content": system_instruction})
+    messages.append({"role": "user", "content": prompt})
+
+    payload = {
+        "model": model,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(
+        endpoint,
+        data=data,
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        },
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=45) as resp:
+            body = json.loads(resp.read().decode('utf-8'))
+            choices = body.get('choices', [])
+            if not choices:
+                return "No response generated by OpenAI."
+            return choices[0].get('message', {}).get('content', '')
+    except urllib.error.HTTPError as err:
+        err_msg = err.read().decode('utf-8', errors='replace')
+        try:
+            parsed = json.loads(err_msg)
+            err_msg = parsed.get('error', {}).get('message', err_msg)
+        except Exception:
+            pass
+        raise RuntimeError(f"OpenAI API Error ({err.code}): {err_msg}")
+    except Exception as exc:
+        raise RuntimeError(f"Network error connecting to OpenAI: {exc}")
+
+
+def _call_anthropic(
+    prompt: str,
+    system_instruction: str,
+    api_key: str,
+    model: str,
+    max_tokens: int,
+    temperature: float,
+) -> str:
+    if not api_key:
+        raise ValueError("Anthropic API key is required. Input your Anthropic API key in settings.")
+
+    url = "https://api.anthropic.com/v1/messages"
+    payload: dict[str, Any] = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "messages": [{"role": "user", "content": prompt}],
+    }
+    if system_instruction:
+        payload["system"] = system_instruction
+
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={
+            "Content-Type": "application/json",
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+        },
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=45) as resp:
+            body = json.loads(resp.read().decode('utf-8'))
+            content_blocks = body.get('content', [])
+            return "".join(b.get('text', '') for b in content_blocks if b.get('type') == 'text')
+    except urllib.error.HTTPError as err:
+        err_msg = err.read().decode('utf-8', errors='replace')
+        try:
+            parsed = json.loads(err_msg)
+            err_msg = parsed.get('error', {}).get('message', err_msg)
+        except Exception:
+            pass
+        raise RuntimeError(f"Anthropic API Error ({err.code}): {err_msg}")
+    except Exception as exc:
+        raise RuntimeError(f"Network error connecting to Anthropic: {exc}")
+
+
+def _call_ollama(
+    prompt: str,
+    system_instruction: str,
+    model: str,
+    base_url: str | None,
+    max_tokens: int,
+    temperature: float,
+) -> str:
+    endpoint_base = (base_url or DEFAULT_OLLAMA_ENDPOINT).rstrip('/')
+    url = f"{endpoint_base}/api/generate"
+
+    full_prompt = prompt
+    if system_instruction:
+        full_prompt = f"{system_instruction}\n\nUser Question:\n{prompt}"
+
+    payload = {
+        "model": model,
+        "prompt": full_prompt,
+        "stream": False,
+        "options": {
+            "temperature": temperature,
+            "num_predict": max_tokens,
+        },
+    }
+
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            body = json.loads(resp.read().decode('utf-8'))
+            return body.get('response', '')
+    except urllib.error.URLError as err:
+        raise RuntimeError(f"Cannot reach Ollama at {endpoint_base}. Please verify Ollama is running (`ollama serve`). Details: {err.reason}")
+    except Exception as exc:
+        raise RuntimeError(f"Ollama execution error: {exc}")
+
+
+def generate_executive_narrative(
+    metrics: dict[str, Any],
+    prognosis: dict[str, Any],
+    prescriptions: list[dict[str, Any]],
+    dataset_summary: dict[str, Any] | None = None,
+    provider: str = 'gemini',
+    api_key: str | None = None,
+    model: str | None = None,
+    base_url: str | None = None,
+) -> dict[str, Any]:
+    """Generates an executive decision story following Skill 28 (Decision Story) and Skill 30 (Publish Reports)."""
+    
+    system_instruction = (
+        "You are an expert Project Controller and Business Intelligence Principal Assistant. "
+        "Your task is to analyze financial/operational datasets and synthesize a decision-ready executive narrative. "
+        "Follow Edward Tufte's data-ink principles: be direct, eliminate corporate jargon, state numbers clearly, "
+        "highlight key variances (Actual vs Budget vs Forecast), and quantify the impact of proposed interventions. "
+        "Structure your response with:\n"
+        "1. Executive Bottom-Line Up Front (BLUF) with Red-Amber-Green status.\n"
+        "2. Diagnostic Analysis (Variance decomposition, run-rates, FTE changes).\n"
+        "3. Prognostic Scenario Outlook (Baseline vs Conservative vs Optimistic EAC/ETC).\n"
+        "4. Prescriptive Action Plan (Ranked by ROI, impact, and feasibility).\n"
+        "5. Governance & Assumptions Note."
+    )
+
+    context_payload = {
+        "key_metrics": metrics,
+        "scenarios_prognosis": prognosis,
+        "prescriptions": prescriptions,
+        "tables_summary": dataset_summary or {},
+    }
+
+    user_prompt = (
+        "Analyze the following verified analytical metrics and formulate an executive decision story:\n\n"
+        f"```json\n{json.dumps(context_payload, indent=2)}\n```\n\n"
+        "Provide a concise, high-impact executive report in Markdown format."
+    )
+
+    narrative = call_llm(
+        prompt=user_prompt,
+        system_instruction=system_instruction,
+        provider=provider,
+        api_key=api_key,
+        model=model,
+        base_url=base_url,
+        max_tokens=2500,
+        temperature=0.2,
+    )
+
+    return {
+        "provider": provider,
+        "model": model or get_default_model(provider),
+        "narrative": narrative,
+        "status": "success",
+    }

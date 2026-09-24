@@ -14,12 +14,15 @@ def _parse_number(value: str | None) -> float:
         return 0.0
     text = text.replace(' ', '')
     try:
-        return float(text.replace('.', '').replace(',', '.'))
+        if '.' in text and ',' in text:
+            # e.g. 1.250,50
+            text = text.replace('.', '').replace(',', '.')
+        elif ',' in text:
+            # e.g. 1250,50
+            text = text.replace(',', '.')
+        return float(text)
     except ValueError:
-        try:
-            return float(text)
-        except ValueError:
-            return 0.0
+        return 0.0
 
 
 def _sum_column(csv_path: str | Path, column: str) -> float:

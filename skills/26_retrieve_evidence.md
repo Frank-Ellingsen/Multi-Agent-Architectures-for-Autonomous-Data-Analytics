@@ -2,36 +2,57 @@
 
 ## Purpose
 
-Collect supporting evidence, references, and reasoning artifacts behind the decision.
+Gather, cross-reference, and index verifiable transaction-level evidence, audit vouchers, purchase orders, time-card approvals, and contract clauses supporting analytical claims and proposed interventions.
+
+## Trigger conditions
+
+- Preparing audit-ready backing material for executive decision stories.
+- Resolving disputed variances or preparing documentation for client claims.
+
+## Primary agent
+
+**Evidence & Lineage Retrieval Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+retrieve_evidence_request:
+  target_findings:
+    - finding_id: string
+      statement: string # e.g. "Overtime cost surged by 340,000 NOK in Fabrication"
+      associated_tables: [FactGL, FactFTE, DimOrganization]
+  required_evidence_level: "transaction_level" | "documentary" | "aggregated"
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+retrieve_evidence_result:
+  evidence_register:
+    - finding_id: string
+      supporting_records:
+        - voucher_id: string
+          posting_date: string
+          account: string
+          amount: float
+          reference_text: string
+          source_file: string
+      documentary_citations: list[string]
+      traceability_confidence: float # 0.0 - 1.0
+  unsupported_statements: list[string]
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Transaction Drilldown:** Query the underlying general ledger or timesheet records that substantiate the aggregated totals.
+2. **Citation Register:** Build a formal register linking every claim in the analytical summary to explicit source row numbers or voucher IDs.
+3. **Audit Trail Assembly:** Compile provenance metadata confirming that evidence was not altered in transit.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Never state a financial claim as fact if underlying transactional evidence is missing.
+- Treat retrieved commentary as corroborated evidence only when verified against the general ledger.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Completed evidence register providing 100% citation coverage for key analytical assertions.

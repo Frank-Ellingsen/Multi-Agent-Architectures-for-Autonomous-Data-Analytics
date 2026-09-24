@@ -2,36 +2,53 @@
 
 ## Purpose
 
-Run the required SQL transformations to build the analytical data product in a reproducible manner.
+Execute optimized analytical SQL transformations and aggregations using local-first analytical SQL engines (**DuckDB** for high-performance columnar analytics, with **SQLite** for lookup queries), calculating summaries and complex window functions.
+
+## Trigger conditions
+
+- Analytical model defined (`09_build_analytical_model.md`).
+- Metric queries, time-series rollups, or cohort aggregations requested.
+
+## Primary agent
+
+**SQL Execution Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+sql_execution_request:
+  engine: "duckdb" | "sqlite"
+  database: ":memory:" | filepath
+  registered_views: list[string]
+  sql_queries:
+    - query_id: string
+      purpose: string
+      sql: string
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+sql_execution_result:
+  query_id: string
+  execution_time_ms: float
+  rows_returned: integer
+  columns: list[string]
+  result_records: list[dict]
+  plan_summary: string
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Local-First Execution:** Leverage DuckDB's vectorized query execution directly over CSVs or Parquet files without external server overhead.
+2. **CTE Organization:** Structure queries using clean Common Table Expressions (CTEs) separating raw extraction, dimension joins, and metric calculations.
+3. **Window Functions:** Compute cumulative sums (year-to-date), moving averages, and period-over-period differences.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Ensure zero-division guards are applied in SQL: `NULLIF(denominator, 0)`.
+- Avoid `SELECT *`; explicitly name all columns and use descriptive aliases.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Analytical SQL queries execute deterministically and return typed tabular results within performance budgets.

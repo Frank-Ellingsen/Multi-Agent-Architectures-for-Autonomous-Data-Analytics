@@ -9,52 +9,230 @@
   <body>
     <div class="app-shell">
       <aside class="sidebar">
-        <h1>Analytics Studio</h1>
-        <nav class="nav">
-          <button class="tab active" data-target="upload-panel">
-            Upload & Diagnostics
+        <div class="brand">
+          <span class="brand-badge">Autonomous AI</span>
+          <h1>Analytics Studio</h1>
+          <p class="subtitle">Multi-Agent Decision Intelligence</p>
+        </div>
+
+        <nav class="nav" aria-label="Main Navigation">
+          <button class="tab active" data-target="upload-panel" id="nav-upload">
+            <span class="tab-index">01</span> Upload & Diagnostics
           </button>
-          <button class="tab" data-target="prognostics-panel">
-            Prognostics
+          <button class="tab" data-target="prognostics-panel" id="nav-prognostics">
+            <span class="tab-index">02</span> Prognostics & Scenarios
           </button>
-          <button class="tab" data-target="prescriptions-panel">
-            Prescriptions
+          <button class="tab" data-target="prescriptions-panel" id="nav-prescriptions">
+            <span class="tab-index">03</span> Recommended Actions
+          </button>
+          <button class="tab" data-target="ai-story-panel" id="nav-ai-story">
+            <span class="tab-index">04</span> AI Executive Story
+          </button>
+          <button class="tab" data-target="skills-panel" id="nav-skills">
+            <span class="tab-index">05</span> 30-Skill Catalog
           </button>
         </nav>
+
+        <div class="sidebar-footer">
+          <div class="status-indicator">
+            <span class="status-dot" id="globalStatusDot"></span>
+            <span id="globalStatusText">No data loaded</span>
+          </div>
+          <div class="key-indicator">
+            <span class="key-badge" id="sidebarKeyStatus">API Key: Not Set</span>
+          </div>
+        </div>
       </aside>
 
       <main class="content">
+        <!-- Top API Key & LLM Configuration Section -->
+        <section class="card config-card" id="apiConfigCard" aria-labelledby="configHeading">
+          <div class="config-header">
+            <div>
+              <h2 id="configHeading">Model & API Key Configuration</h2>
+              <p class="section-desc">Configure your LLM credentials for autonomous reasoning, narrative generation, and prescriptive optimization.</p>
+            </div>
+            <div class="config-actions">
+              <span class="badge" id="connectionBadge">Status: Disconnected</span>
+            </div>
+          </div>
+
+          <div class="config-grid">
+            <div class="form-group">
+              <label for="llmProvider">LLM Provider</label>
+              <select id="llmProvider" class="form-control">
+                <option value="gemini" selected>Google Gemini (Recommended)</option>
+                <option value="openai">OpenAI</option>
+                <option value="anthropic">Anthropic Claude</option>
+                <option value="ollama">Local Ollama / LM Studio (No API Key)</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="apiKeyGroup">
+              <label for="apiKey">API Key <span class="required">*</span></label>
+              <div class="input-with-toggle">
+                <input
+                  id="apiKey"
+                  type="password"
+                  class="form-control"
+                  placeholder="Enter your API key..."
+                  autocomplete="off"
+                />
+                <button type="button" id="toggleKeyVisibility" class="btn-toggle" title="Show or hide key">Show</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="llmModel">Model Name</label>
+              <input
+                id="llmModel"
+                type="text"
+                class="form-control"
+                value="gemini-1.5-flash"
+                placeholder="Model name..."
+              />
+            </div>
+
+            <div class="form-group" id="endpointGroup" style="display: none;">
+              <label for="llmEndpoint">Base URL / Endpoint</label>
+              <input
+                id="llmEndpoint"
+                type="text"
+                class="form-control"
+                value="http://localhost:11434"
+                placeholder="http://localhost:11434"
+              />
+            </div>
+          </div>
+
+          <div class="config-buttons">
+            <button id="testConnectionBtn" class="secondary-btn">Test Connection</button>
+            <button id="saveKeyBtn" class="primary-btn">Save Settings</button>
+            <button id="clearKeyBtn" class="text-btn">Clear Saved Key</button>
+            <span id="configFeedback" class="feedback-msg"></span>
+          </div>
+        </section>
+
+        <!-- Tab 1: Upload & Diagnostics -->
         <section id="upload-panel" class="panel active">
           <div class="card upload-card">
-            <h2>Upload CSV files</h2>
-            <input id="csvFiles" type="file" accept=".csv" multiple />
-            <button id="runDiagnosticsBtn" class="primary-btn">
-              Run diagnostics
-            </button>
+            <div class="upload-header">
+              <h2>Data Ingestion</h2>
+              <p class="section-desc">Upload ERP/accounting CSV files (e.g. FactGL, FactBudget, FactForecast, FactFTE) or load the built-in demo dataset.</p>
+            </div>
+            <div class="upload-controls">
+              <input id="csvFiles" type="file" accept=".csv" multiple aria-label="Upload CSV files" />
+              <button id="runDiagnosticsBtn" class="primary-btn">
+                Run Diagnostics
+              </button>
+              <button id="loadDemoBtn" class="secondary-btn">
+                Load Demo ERP Dataset
+              </button>
+            </div>
           </div>
 
           <div class="card">
-            <h3>Dataset summary</h3>
-            <div id="datasetSummary" class="summary-grid"></div>
+            <h3>Key Financial & Operational Metrics</h3>
+            <div id="metricsStrip" class="metrics-strip">
+              <div class="metric-box">
+                <span class="metric-label">Actual Total</span>
+                <div class="metric-value" id="metricActual">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Budget Total</span>
+                <div class="metric-value" id="metricBudget">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Forecast Total</span>
+                <div class="metric-value" id="metricForecast">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Variance to Budget</span>
+                <div class="metric-value" id="metricVarBudget">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Variance to Forecast</span>
+                <div class="metric-value" id="metricVarForecast">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">FTE Run Rate</span>
+                <div class="metric-value" id="metricFTE">-</div>
+              </div>
+            </div>
           </div>
 
           <div class="card">
-            <h3>Diagnostics report</h3>
-            <div id="diagnosticsReport" class="report-block"></div>
+            <h3>Dataset Summary & Entity Architecture</h3>
+            <div id="datasetSummary" class="summary-grid">
+              <p class="empty-state">No dataset loaded. Upload CSV files or click "Load Demo ERP Dataset".</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Schema Inference & Dimensional Integrity</h3>
+            <div id="schemaReport" class="table-container">
+              <p class="empty-state">Schema will appear after running diagnostics.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Diagnostics Audit & Lineage Report</h3>
+            <div id="diagnosticsReport" class="report-block">Upload CSV files to generate diagnostics, prognostics, and action recommendations.</div>
           </div>
         </section>
 
+        <!-- Tab 2: Prognostics -->
         <section id="prognostics-panel" class="panel">
           <div class="card">
-            <h2>Prognostics</h2>
-            <div id="prognosticsTable"></div>
+            <h2>Prognostic Scenarios & Risk Projections</h2>
+            <p class="section-desc">Multi-scenario projections (Skill 20) with downside uncertainty modeling and budget variance tracking.</p>
+            <div id="prognosticsTable" class="table-container">
+              <p class="empty-state">Load data to view prognostic scenarios.</p>
+            </div>
           </div>
         </section>
 
+        <!-- Tab 3: Prescriptions -->
         <section id="prescriptions-panel" class="panel">
           <div class="card">
-            <h2>Recommended actions</h2>
-            <div id="prescriptionsList"></div>
+            <h2>Prescriptive Decision Portfolio</h2>
+            <p class="section-desc">Optimized interventions (Skill 24) ranked by ROI impact, feasibility, and risk.</p>
+            <div id="prescriptionsList">
+              <p class="empty-state">Load data to view prescriptive actions.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 4: AI Executive Decision Story -->
+        <section id="ai-story-panel" class="panel">
+          <div class="card">
+            <div class="story-header">
+              <div>
+                <h2>AI Executive Decision Narrative</h2>
+                <p class="section-desc">Synthesized executive intelligence following Skill 28 (Decision Story) and Skill 30 (Publish Reports).</p>
+              </div>
+              <button id="generateStoryBtn" class="primary-btn">
+                Generate Decision Story
+              </button>
+            </div>
+            <div id="storyStatus" class="story-status-msg"></div>
+            <div id="aiStoryOutput" class="report-block story-content">
+              Configure your API key in the top configuration panel and click "Generate Decision Story" to synthesize an autonomous executive briefing.
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 5: Skills Catalog -->
+        <section id="skills-panel" class="panel">
+          <div class="card">
+            <h2>Autonomous Analytics Skills Catalog</h2>
+            <p class="section-desc">The 30 modular skills powering the autonomous data-to-decision journey.</p>
+            <div class="filter-bar">
+              <input type="text" id="skillSearchInput" class="form-control" placeholder="Search skills by title, phase, or keyword..." />
+            </div>
+            <div id="skillsList" class="skills-grid">
+              <p class="empty-state">Loading skills catalog...</p>
+            </div>
           </div>
         </section>
       </main>

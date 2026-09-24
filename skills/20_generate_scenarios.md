@@ -2,36 +2,70 @@
 
 ## Purpose
 
-Construct scenario plans that reflect different assumptions and strategic conditions.
+Construct coherent macroeconomic and operational scenarios (Baseline, Conservative, Optimistic, and Stress Case) reflecting varying assumptions on labor productivity, material inflation, project delay penalties, and revenue conversion rates.
+
+## Trigger conditions
+
+- Forecast generation completed (`19_generate_forecast.md`).
+- Strategic planning, project board reviews, or contingency reserve sizing.
+
+## Primary agent
+
+**Scenario Architect Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+generate_scenarios_request:
+  baseline_forecast: map[period, amount]
+  scenarios_to_build:
+    - name: "baseline"
+      description: "Most probable path under current operating conditions"
+    - name: "conservative"
+      description: "Adverse conditions: higher subcontractor rates and 10% delivery delay"
+    - name: "optimistic"
+      description: "Accelerated execution and favorable supply chain terms"
+    - name: "stress_test"
+      description: "Severe shock: 20% cost surge on critical path items"
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+generate_scenarios_result:
+  scenarios:
+    baseline:
+      actual_total: float
+      expected_total: float
+      variance_vs_budget: float
+      eac: float
+    conservative:
+      actual_total: float
+      expected_total: float
+      variance_vs_budget: float
+      eac: float
+    optimistic:
+      actual_total: float
+      expected_total: float
+      variance_vs_budget: float
+      eac: float
+  spread_range:
+    max_eac: float
+    min_eac: float
+    delta_spread: float
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Parameter Bundling:** Link related assumptions coherently (e.g. higher volume should correlate with higher direct material costs).
+2. **Variance Impact Modeling:** Quantify the financial delta of each scenario against the baseline and original budget.
+3. **Contingency Testing:** Determine whether current management contingency reserves can absorb the conservative scenario.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Avoid extreme unrealistic scenarios that distract from actionable decision making.
+- Explicitly list the key drivers differentiating each scenario.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Mutually distinct, structured scenarios with calculated EAC and variance outcomes.

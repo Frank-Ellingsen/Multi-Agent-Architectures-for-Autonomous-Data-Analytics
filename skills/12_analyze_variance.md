@@ -2,36 +2,59 @@
 
 ## Purpose
 
-Compare current outputs against baselines to explain variance and highlight key deviations.
+Decompose and explain variances between Actual results and Budget/Forecast baselines into explanatory business components: Rate (price/labor rate), Volume (hours/units), and Mix (staffing seniority or project phase composition).
+
+## Trigger conditions
+
+- Material cost or revenue variances identified exceeding governed thresholds (e.g. >5% or >100,000 NOK).
+- Monthly project review variance bridge preparation.
+
+## Primary agent
+
+**Variance Analyst Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+variance_analysis_request:
+  reporting_period: string
+  baseline: "budget" | "prior_forecast" | "prior_year"
+  comparison_target: "actual"
+  dimensions_for_breakdown: [Account, CostCenter, Project, Vendor]
+  materiality_threshold: 50000.0 # NOK
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+variance_analysis_result:
+  total_variance: float
+  variance_breakdown:
+    - dimension_value: string
+      actual: float
+      baseline: float
+      variance: float
+      variance_pct: float
+      rate_variance: float | null
+      volume_variance: float | null
+      explanation: string
+  waterfall_bridge_steps:
+    - step_name: string
+      amount: float
+      cumulative: float
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Waterfall Bridge Construction:** Build the step-by-step bridge starting at Budget and concluding at Actual.
+2. **Rate/Volume Decomposition:** Separate hourly labor rate increases from excess hours billed.
+3. **Materiality Filtering:** Focus executive attention on the top 20% of variances causing 80% of the financial gap (Pareto principle).
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Ensure the sum of individual variance components equals the total overall variance to the exact cent.
+- Do not attribute causation without supporting transactional evidence.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Completed variance breakdown and waterfall bridge reconciling baseline to actual.

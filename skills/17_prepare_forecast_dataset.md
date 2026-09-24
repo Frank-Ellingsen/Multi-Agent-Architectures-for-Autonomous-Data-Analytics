@@ -2,36 +2,57 @@
 
 ## Purpose
 
-Prepare the historical features and dependent variables needed for a robust forecasting baseline.
+Construct high-integrity time-series feature datasets for forecasting, engineering lag variables, rolling window statistics, calendar indicators, seasonality indices, and committed backlog spend.
+
+## Trigger conditions
+
+- Prior to training or executing time-series forecasting models (`18_select_and_backtest_model.md`).
+- Building quarterly/annual rolling forecast projections.
+
+## Primary agent
+
+**Feature Engineering & Forecasting Data Agent**
 
 ## Inputs
 
-- Source data or artifacts relevant to this step.
-- Any prior outputs from earlier workflow stages.
-- Assumptions, constraints, or business context.
+```yaml
+prepare_forecast_data_request:
+  history_table: "FactGL"
+  target_column: "Belop_signert"
+  date_column: "Dato"
+  aggregation_grain: "monthly"
+  feature_requirements:
+    lags: [1, 2, 3, 12]
+    rolling_means: [3, 6]
+    include_fte_feature: boolean
+    include_inflation_index: boolean
+```
 
 ## Outputs
 
-- A structured result ready for downstream stages.
-- Clear notes on decisions, assumptions, and quality checks.
-- Evidence or audit references, if applicable.
+```yaml
+prepare_forecast_data_result:
+  dataset_name: string
+  row_count: integer
+  feature_columns: list[string]
+  train_split_periods: list[string]
+  test_split_periods: list[string]
+  stationarity_test:
+    is_stationary: boolean
+    differencing_order_d: integer
+```
 
 ## Responsibilities
 
-- Validate the required data or inputs.
-- Define the scope of the task.
-- Produce a clean handoff to the next stage.
+1. **Calendar Alignment:** Fill gaps in historical time-series with explicit zero postings where appropriate.
+2. **Lag & Rolling Features:** Create lag features ($t-1, t-2, t-12$) and rolling averages to capture momentum and seasonality.
+3. **Train/Validation Partition:** Split data cleanly on time boundaries without future information leakage.
 
-## Execution guidance
+## Guardrails
 
-1. Confirm the objective and success criteria.
-2. Inspect the available inputs and constraints.
-3. Run the transformation or analysis required by this stage.
-4. Record assumptions and quality checks.
-5. Pass the result to the next stage with a consistent contract.
+- Never randomize or shuffle time-series data; chronological order must remain strictly intact.
+- Guard against survivorship bias by retaining closed accounts and discontinued projects.
 
-## Suggested prompts
+## Definition of done
 
-- Summarize the required data sources and constraints.
-- Identify the key quality checks for this stage.
-- Produce a concise output ready for downstream agents.
+- Clean, rectangular feature matrix formatted for forecasting models with zero lookahead bias.
