@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import tempfile
 from pathlib import Path
 
@@ -9,7 +10,7 @@ import streamlit as st
 
 from multi_agent_analytics.ai_agent import generate_executive_narrative, test_llm_connection
 from multi_agent_analytics.analytics import compute_key_metrics
-from multi_agent_analytics.dataset import load_dataset_summary
+from multi_agent_analytics.dataset import SUPPORTED_EXTENSIONS, load_dataset_summary
 from multi_agent_analytics.decision import generate_prescriptions, generate_prognosis
 from multi_agent_analytics.relationships import validate_relationships
 from multi_agent_analytics.reporting import build_markdown_report
@@ -20,6 +21,17 @@ st.set_page_config(page_title='Multi-Agent Analytics Studio', layout='wide')
 st.title('Multi-Agent Analytics Studio')
 
 ROOT = Path(__file__).resolve().parent
+UNSEEN_DATA_DIR = ROOT / 'test_data' / 'unseen_businesses'
+
+DEMO_CHOICES = {
+    'Built-in Demo ERP (Star Schema CSV)': 'erp_default',
+    'Maritime Defense Shipbuilding (Excel .xlsx)': 'maritime_defense_vessel.xlsx',
+    'Cloud SaaS & Subscription (Tab .tsv)': 'saas_subscription_platform.tsv',
+    'Nordic Retail & Margin (Semicolon .csv)': 'nordic_retail_inventory.csv',
+    'Offshore Drilling Operations (Pipe .psv)': 'offshore_marine_drilling.psv',
+    'Hospital Clinical Performance (PDF Document .pdf)': 'hospital_executive_kpis.pdf',
+    'Consulting Engagements (Text .txt)': 'management_consulting_engagements.txt',
+}
 
 with st.sidebar:
     st.header('Navigation')
@@ -54,25 +66,36 @@ with st.sidebar:
                 st.error(res.get('error', 'Connection failed.'))
 
     st.markdown('---')
-    use_demo = st.checkbox('Use built-in Demo ERP Dataset', value=False)
+    st.subheader('Demo Datasets (Multi-Business)')
+    use_demo = st.checkbox('Load Pre-built Business Dataset', value=False)
+    selected_demo = 'erp_default'
+    if use_demo:
+        demo_label = st.selectbox('Select Business & Format', list(DEMO_CHOICES.keys()))
+        selected_demo = DEMO_CHOICES[demo_label]
 
 uploaded_files = []
 if not use_demo:
+    allowed_types = [ext.lstrip('.') for ext in SUPPORTED_EXTENSIONS]
     uploaded_files = st.file_uploader(
-        'Upload analytics CSV files',
-        type=['csv'],
+        'Upload analytics files (Excel, TSV, Semicolon CSV, Pipe PSV, PDF, TXT)',
+        type=allowed_types,
         accept_multiple_files=True,
     )
     if not uploaded_files:
-        st.info('Upload one or more CSV files or check "Use built-in Demo ERP Dataset" in the sidebar to start.')
+        st.info('Upload one or more files (CSV, TSV, TXT, PSV, Excel .xlsx, or PDF) or check "Load Pre-built Business Dataset" in the sidebar to start.')
         st.stop()
 
 with tempfile.TemporaryDirectory() as temp_dir:
     temp_path = Path(temp_dir)
     if use_demo:
-        demo_dir = ROOT / 'test_data'
-        for f in demo_dir.glob('*.csv'):
-            (temp_path / f.name).write_bytes(f.read_bytes())
+        if selected_demo == 'erp_default':
+            demo_dir = ROOT / 'test_data'
+            for f in demo_dir.glob('*.csv'):
+                (temp_path / f.name).write_bytes(f.read_bytes())
+        else:
+            source_file = UNSEEN_DATA_DIR / selected_demo
+            if source_file.exists():
+                shutil.copy2(source_file, temp_path / selected_demo)
     else:
         for uploaded in uploaded_files:
             destination = temp_path / uploaded.name
@@ -86,66 +109,63 @@ with tempfile.TemporaryDirectory() as temp_dir:
     prognosis = generate_prognosis(metrics)
     prescriptions = generate_prescriptions(metrics)
 
+    domain = metrics.get('domain', 'Enterprise Financial Controlling')
+    currency = metrics.get('currency', 'NOK')
+
     if menu == 'Upload & Diagnostics':
-        st.subheader('Key Financial Metrics')
+        st.caption(f"Recognized Business Domain: **{domain}** | Currency: **{currency}**")
+        st.subheader('Key Financial & Operational Metrics')
         c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Actual Total", f"{metrics['actual_total']:,.2f}")
-        c2.metric("Budget Total", f"{metrics['budget_total']:,.2f}")
-        c3.metric("Forecast Total", f"{metrics['forecast_total']:,.2f}")
+        c1.metric("Actual / Primary Total", f"{metrics['actual_total']:,.2f} {currency}")
+        c2.metric("Budget / Baseline Total", f"{metrics['budget_total']:,.2f} {currency}")
+        c3.metric("Forecast / EAC Total", f"{metrics['forecast_total']:,.2f} {currency}")
         c4.metric(
             "Variance to Budget",
-            f"{metrics['variance_to_budget']:,.2f}",
+            f"{metrics['variance_to_budget']:,.2f} {currency}",
             delta=f"{metrics['variance_to_budget']:,.2f}",
             delta_color="normal"
         )
 
-        st.subheader('Diagnostics Report')
-        st.code(report, language='markdown')
+        st.subheader('Diagnostics & Executive Report')
+        st.markdown(report)
 
-        st.subheader('Dataset Summary')
-        st.dataframe(
-            [{
-                'file': name,
+        st.subheader('Dataset Footprint & Extracted Entities')
+        summary_rows = []
+        for name, info in dataset_summary.items():
+            if name.endswith('.csv') and any(k == name[:-4] for k in dataset_summary):
+                continue
+            summary_rows.append({
+                'table_or_file': name,
                 'rows': info['row_count'],
                 'columns': info['column_count'],
-            } for name, info in dataset_summary.items()],
-            use_container_width=True,
-        )
+                'format': info.get('format', 'unknown'),
+                'source': info.get('source_file', name),
+            })
+        st.dataframe(summary_rows, use_container_width=True)
 
-        st.subheader('Relationship Check')
-        st.json({
-            'relationship_count': relationship_summary['relationship_count'],
-            'valid': relationship_summary['valid'],
-            'issues': relationship_summary['issues'],
-        })
+        st.subheader('Inferred Schema & Data Types')
+        st.json(schema_summary)
 
     elif menu == 'Prognostics':
-        st.subheader('Prognostic Scenarios')
-        st.dataframe(
-            [{
-                'scenario': name.capitalize(),
-                'actual_total': f"{float(info['actual_total']):,.2f}",
-                'expected_total': f"{float(info['expected_total']):,.2f}",
-                'variance_vs_budget': f"{float(info['variance_vs_budget']):,.2f}",
-            } for name, info in prognosis.items()],
-            use_container_width=True,
-        )
+        st.subheader(f'Prognostic Scenarios - {domain}')
+        st.dataframe([
+            {'scenario': name.capitalize(), 'actual': f"{data['actual_total']:,.2f}", 'expected': f"{data['expected_total']:,.2f}", 'variance_vs_budget': f"{data['variance_vs_budget']:,.2f}"}
+            for name, data in prognosis.items()
+        ], use_container_width=True)
 
     elif menu == 'Prescriptions':
-        st.subheader('Recommended Actions')
-        for item in prescriptions:
-            with st.expander(str(item['title'])):
-                st.write(item['description'])
-                st.write(f"**Quantified Outcome:** {item['expected_result']}")
-                st.write(f"**Impact score:** {float(item['impact_score'])*100:.0f}%")
+        st.subheader(f'Prescriptive Action Portfolio - {domain}')
+        for action in prescriptions:
+            with st.expander(f"⭐ {action['title']} (Impact Score: {action['impact_score']})", expanded=True):
+                st.write(action['description'])
+                st.info(f"Expected Business Outcome: {action['expected_result']}")
 
     elif menu == 'AI Decision Story':
-        st.subheader('AI Executive Decision Narrative')
-        st.caption('Synthesizes an executive story using your configured LLM API key.')
-        if st.button('Generate Narrative'):
-            with st.spinner(f'Synthesizing decision story via {provider.upper()}...'):
+        st.subheader('Autonomous AI Executive Decision Narrative')
+        if st.button('Generate Executive Decision Story'):
+            with st.spinner('Synthesizing executive intelligence across multi-agent phases...'):
                 try:
-                    narrative_res = generate_executive_narrative(
+                    res = generate_executive_narrative(
                         metrics=metrics,
                         prognosis=prognosis,
                         prescriptions=prescriptions,
@@ -155,12 +175,11 @@ with tempfile.TemporaryDirectory() as temp_dir:
                         model=model,
                         base_url=endpoint,
                     )
-                    st.markdown(narrative_res['narrative'])
+                    st.markdown(res.get('narrative', ''))
                 except Exception as e:
-                    st.error(f"Error generating narrative: {e}")
+                    st.error(f"Failed to generate story: {e}")
 
     elif menu == '30-Skill Catalog':
-        st.subheader('Autonomous Analytics Skills Catalog')
+        st.subheader('Autonomous Analytics 30-Skill Operational Catalog')
         for skill in DEFAULT_SKILLS:
-            with st.expander(f"{skill.id} - {skill.title}"):
-                st.write(skill.description)
+            st.markdown(f"**{skill.id} - {skill.title}**: {skill.description}")

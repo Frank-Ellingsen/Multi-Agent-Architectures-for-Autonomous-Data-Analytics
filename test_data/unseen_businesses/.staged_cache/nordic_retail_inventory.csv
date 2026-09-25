@@ -1,0 +1,9 @@
+Artikkel_ID,Varenavn,Kategori,Lager_Lokasjon,Innkjoepspris_NOK,Salgspris_NOK,Lagerbeholdning,Maanedlig_Salg_NOK,Budsjett_Salg_NOK,Prognose_Salg_NOK,Bruttomargin_Prosent
+ART-101,Vinterjakke Ekspedisjon,Yttertoy,Lager Oslo,"1250,50","2899,00",450,"1304550,00","1200000,00","1350000,00","56,8"
+ART-102,Ullgenser Merino,Strikk,Lager Bergen,"420,00","999,00",820,"819180,00","850000,00","820000,00","57,9"
+ART-103,Fjellstovel Gore-Tex,Fottoy,Lager Kristiansand,"980,00","2299,00",310,"712690,00","750000,00","720000,00","57,3"
+ART-104,Teknisk Skallbukse,Yttertoy,Lager Oslo,"790,00","1799,00",540,"971460,00","900000,00","980000,00","56,0"
+ART-105,Dunjakke Lettvekt,Yttertoy,Lager Trondheim,"890,50","2199,00",620,"1363380,00","1400000,00","1380000,00","59,5"
+ART-106,Vandresekk 65L Pro,Utstyr,Lager Oslo,"650,00","1599,00",280,"447720,00","420000,00","450000,00","59,3"
+ART-107,Termoundertoy Sett,Ull,Lager Bergen,"210,00","599,00",1450,"868550,00","800000,00","870000,00","64,9"
+ART-108,Vinterhanske Vindtett,Tilbehor,Lager Kristiansand,"145,00","399,00",980,"391020,00","350000,00","400000,00","63,6"

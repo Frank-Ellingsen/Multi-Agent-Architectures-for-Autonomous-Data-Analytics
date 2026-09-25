@@ -1,0 +1,6 @@
+Milestone_ID,Milestone_Name,Target_Date,Status,Risk_Level,Contingency_Allocation_NOK
+M-01,Composite Hull Moulding Complete,2024-06-30,Completed,Low,0
+M-02,Superstructure Infusion & Bonding,2024-12-15,Completed,Medium,2500000
+M-03,Main Gas Turbine Alignment,2025-05-20,Delayed,High,6000000
+M-04,Harbor Acceptance Test (HAT),2025-10-15,In Progress,High,8500000
+M-05,Sea Acceptance Trials (SAT),2026-06-30,Planned,Critical,12000000

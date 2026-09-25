@@ -1,0 +1,7 @@
+WBS_Code,WBS_Description,Department,Budget_NOK,Actual_Cost_NOK,ETC_NOK,EAC_NOK,SPI,CPI,Hours_Actual
+WP-100,Hull & Composite Superstructure,Production Composite,125000000,132500000,18000000,150500000,0.94,0.88,42500
+WP-200,Propulsion & Gas Turbine Integration,Mechanical Engineering,95000000,89200000,12000000,101200000,0.98,0.96,18200
+WP-300,Combat Management System & Radar,Systems Integration,145000000,141800000,15500000,157300000,0.99,0.95,24600
+WP-400,Electrical & Auxiliary Systems,Electrical Engineering,42000000,38600000,4500000,43100000,1.01,0.97,14300
+WP-500,Sea Acceptance Trials & Commissioning,Project Management,38000000,14500000,26500000,41000000,0.92,0.91,6800
+WP-900,Management & Technical Contingency,Project Controlling,40000000,0,30000000,30000000,1,1,1200

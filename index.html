@@ -117,25 +117,39 @@
         <section id="upload-panel" class="panel active">
           <div class="card upload-card">
             <div class="upload-header">
-              <h2>Data Ingestion</h2>
-              <p class="section-desc">Upload ERP/accounting CSV files (e.g. FactGL, FactBudget, FactForecast, FactFTE) or load the built-in demo dataset.</p>
+              <h2>Data Ingestion & Multi-Format Recognition</h2>
+              <p class="section-desc">Upload enterprise analytics files in any format (Excel .xlsx, Tab .tsv, Semicolon .csv, Pipe .psv, PDF reports .pdf, Text .txt) or test unseen business domains.</p>
             </div>
             <div class="upload-controls">
-              <input id="csvFiles" type="file" accept=".csv" multiple aria-label="Upload CSV files" />
+              <input id="csvFiles" type="file" accept=".csv,.tsv,.txt,.psv,.xlsx,.xls,.pdf" multiple aria-label="Upload analytics files" />
               <button id="runDiagnosticsBtn" class="primary-btn">
                 Run Diagnostics
               </button>
-              <button id="loadDemoBtn" class="secondary-btn">
-                Load Demo ERP Dataset
-              </button>
+              <div class="demo-selector-group">
+                <select id="demoDomainSelect" class="form-control" aria-label="Select demo business domain">
+                  <option value="erp_default">General ERP & Financial Controlling (CSV)</option>
+                  <option value="maritime_defense">Maritime & Defense Shipbuilding (Excel .xlsx)</option>
+                  <option value="saas_subscription">Cloud SaaS & Subscription Analytics (Tab .tsv)</option>
+                  <option value="nordic_retail">Nordic Retail & Supply Chain (Semicolon .csv)</option>
+                  <option value="offshore_marine">Offshore Energy & Drilling (Pipe .psv)</option>
+                  <option value="hospital_kpis">Healthcare Hospital Performance (PDF .pdf)</option>
+                  <option value="consulting">Professional Consulting Engagements (Text .txt)</option>
+                </select>
+                <button id="loadDemoBtn" class="secondary-btn">
+                  Load Selected Dataset
+                </button>
+              </div>
             </div>
           </div>
 
           <div class="card">
-            <h3>Key Financial & Operational Metrics</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <h3 style="margin: 0;">Key Financial & Operational Metrics</h3>
+              <span id="domainBadge" class="domain-badge">Enterprise Financial Controlling (NOK)</span>
+            </div>
             <div id="metricsStrip" class="metrics-strip">
               <div class="metric-box">
-                <span class="metric-label">Actual Total</span>
+                <span class="metric-label" id="metricActualLabel">Actual / Spend</span>
                 <div class="metric-value" id="metricActual">-</div>
               </div>
               <div class="metric-box">

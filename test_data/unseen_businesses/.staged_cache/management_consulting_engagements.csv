@@ -1,0 +1,6 @@
+engagement_id,client_name,practice_area,budget_fees_nok,actual_billing_nok,forecast_billing_nok,incurred_hours,target_hours,realization_rate_pct,lead_partner
+ENG-2024-01,Kongsberg Maritime,Systems Optimization,4500000.00,4820000.00,5100000.00,2450.0,2200.0,96.5,J. Hansen
+ENG-2024-02,Statkraft Hydro,Digital Transformation,3200000.00,3100000.00,3300000.00,1620.0,1600.0,98.2,E. Solberg
+ENG-2024-03,Yara International,Supply Chain Decarbonization,6800000.00,7250000.00,7500000.00,3800.0,3500.0,94.8,K. Moe
+ENG-2024-04,DNB Markets,Risk Governance Automation,5100000.00,4950000.00,5200000.00,2750.0,2800.0,99.1,T. Olsen
+ENG-2024-05,Equinor Renewables,Offshore Wind Financial Model,5900000.00,6400000.00,6600000.00,3100.0,2900.0,95.0,M. Lund

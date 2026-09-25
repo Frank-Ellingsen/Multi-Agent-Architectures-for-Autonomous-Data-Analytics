@@ -1,0 +1,11 @@
+customer_id	company_name	plan_tier	mrr_usd	arr_usd	budget_mrr_usd	forecast_mrr_usd	churn_risk_score	billing_cycle	cac_usd	ltv_usd	active_seats
+CUST-001	Nordic Fintech AS	Enterprise	12500.00	150000.00	11000.00	13000.00	0.08	Annual	18500.00	225000.00	145
+CUST-002	Arctic Logistics Group	Enterprise	9800.00	117600.00	9500.00	10200.00	0.14	Annual	14200.00	176000.00	98
+CUST-003	Scandic Retail Tech	Professional	4500.00	54000.00	5000.00	4800.00	0.32	Monthly	7800.00	65000.00	45
+CUST-004	Oslo Health Systems	Enterprise	18200.00	218400.00	16500.00	19000.00	0.05	Annual	24000.00	350000.00	210
+CUST-005	Fjord Media Network	Growth	2800.00	33600.00	3200.00	2900.00	0.45	Monthly	5100.00	38000.00	28
+CUST-006	Bergen Green Energy	Enterprise	14200.00	170400.00	13500.00	15000.00	0.11	Annual	19500.00	240000.00	160
+CUST-007	Stavanger Subsea AI	Professional	6200.00	74400.00	6000.00	6500.00	0.18	Annual	9200.00	110000.00	62
+CUST-008	Telemark Data Solutions	Growth	3400.00	40800.00	3800.00	3500.00	0.28	Monthly	5600.00	48000.00	35
+CUST-009	Trondheim Quantum Labs	Professional	5800.00	69600.00	5500.00	6000.00	0.12	Annual	8800.00	98000.00	55
+CUST-010	Drammen Mobility AS	Starter	1200.00	14400.00	1500.00	1300.00	0.52	Monthly	2800.00	18000.00	12

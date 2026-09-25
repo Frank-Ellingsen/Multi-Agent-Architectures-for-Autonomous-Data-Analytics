@@ -1,0 +1,6 @@
+vessel_id,vessel_name,operator,day_rate_usd,operating_hours,downtime_hours,fuel_cost_usd,maintenance_actual_usd,maintenance_budget_usd,maintenance_forecast_usd,crew_fte
+VES-801,Northern Pioneer,Equinor Energy,42500.00,720.0,12.5,185000.00,945000.00,850000.00,980000.00,28.5
+VES-802,Arctic Protector,Aker BP,51000.00,708.0,24.0,210000.00,1120000.00,980000.00,1150000.00,34.0
+VES-803,Fjord Constructor,Subsea 7,68000.00,695.0,38.5,295000.00,1650000.00,1450000.00,1700000.00,46.0
+VES-804,Viking Supporter,ConocoPhillips,36000.00,735.0,4.0,145000.00,680000.00,720000.00,700000.00,22.0
+VES-805,Skagerrak Explorer,Vår Energi,58000.00,712.0,18.0,240000.00,1380000.00,1250000.00,1400000.00,38.5

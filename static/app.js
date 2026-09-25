@@ -384,24 +384,34 @@ function renderResults(result, source = 'Browser engine') {
   state.metrics = result.metrics || {};
   state.prognosis = result.prognosis || {};
   state.prescriptions = result.prescriptions || [];
+  
+  const domainBadge = $('domainBadge');
+  const domainName = state.metrics.domain || 'Enterprise Financial Controlling';
+  const currency = state.metrics.currency || 'NOK';
+  if (domainBadge) {
+    domainBadge.textContent = `${domainName} (${currency})`;
+  }
+
   globalStatusDot.classList.add('active');
-  globalStatusText.textContent = `${source}: ${Object.keys(state.dataset).length} datasets`;
-  metricActual.textContent = formatNOK(state.metrics.actual_total);
-  metricBudget.textContent = formatNOK(state.metrics.budget_total);
-  metricForecast.textContent = formatNOK(state.metrics.forecast_total);
+  globalStatusText.textContent = `${source}: ${Object.keys(state.dataset).length} datasets (${domainName})`;
+  metricActual.textContent = `${formatNOK(state.metrics.actual_total)} ${currency}`;
+  metricBudget.textContent = `${formatNOK(state.metrics.budget_total)} ${currency}`;
+  metricForecast.textContent = `${formatNOK(state.metrics.forecast_total)} ${currency}`;
   metricFTE.textContent = Number(state.metrics.fte_total || 0).toFixed(1);
   [
     [metricVarBudget, state.metrics.variance_to_budget],
     [metricVarForecast, state.metrics.variance_to_forecast],
   ].forEach(([element, value]) => {
-    element.textContent = formatNOK(value);
+    element.textContent = `${formatNOK(value)} ${currency}`;
     element.className = `metric-value ${(value || 0) < 0 ? 'variance-negative' : 'variance-positive'}`;
   });
   datasetSummary.innerHTML =
     Object.entries(state.dataset)
       .map(
-        ([name, info]) =>
-          `<div class="summary-card"><div class="summary-card-name">${escapeHtml(name)}</div><div class="summary-card-stats">${Number(info.row_count || 0).toLocaleString()} rows · ${info.column_count || 0} cols</div></div>`
+        ([name, info]) => {
+          const fmt = (info.format || 'csv').replace('.', '').toUpperCase();
+          return `<div class="summary-card"><div class="summary-card-name">${escapeHtml(name)} <span class="format-pill">${escapeHtml(fmt)}</span></div><div class="summary-card-stats">${Number(info.row_count || 0).toLocaleString()} rows · ${info.column_count || 0} cols</div></div>`;
+        }
       )
       .join('') || '<p class="empty-state">No tables found.</p>';
   schemaReport.innerHTML = `<table><thead><tr><th>Table Name</th><th>Columns &amp; Inferred Types</th></tr></thead><tbody>${Object.entries(
@@ -427,8 +437,9 @@ function renderResults(result, source = 'Browser engine') {
 }
 function renderPrognostics() {
   const rows = Object.values(state.prognosis);
+  const currency = state.metrics.currency || 'NOK';
   prognosticsTable.innerHTML = rows.length
-    ? `<table><thead><tr><th>Scenario</th><th class="numeric">Actual Total</th><th class="numeric">Expected Total (EAC)</th><th class="numeric">Variance vs Budget</th></tr></thead><tbody>${rows.map((row) => `<tr><td style="text-transform: capitalize;"><strong>${escapeHtml(row.scenario)}</strong></td><td class="numeric">${formatNOK(row.actual_total)}</td><td class="numeric">${formatNOK(row.expected_total)}</td><td class="numeric" style="color: ${(row.variance_vs_budget || 0) < 0 ? 'var(--danger)' : 'var(--success)'};">${formatNOK(row.variance_vs_budget)}</td></tr>`).join('')}</tbody></table>`
+    ? `<table><thead><tr><th>Scenario</th><th class="numeric">Actual Total</th><th class="numeric">Expected Total (EAC)</th><th class="numeric">Variance vs Budget</th></tr></thead><tbody>${rows.map((row) => `<tr><td style="text-transform: capitalize;"><strong>${escapeHtml(row.scenario)}</strong></td><td class="numeric">${formatNOK(row.actual_total)} ${currency}</td><td class="numeric">${formatNOK(row.expected_total)} ${currency}</td><td class="numeric" style="color: ${(row.variance_vs_budget || 0) < 0 ? 'var(--danger)' : 'var(--success)'};">${formatNOK(row.variance_vs_budget)} ${currency}</td></tr>`).join('')}</tbody></table>`
     : '<p class="empty-state">No scenario projections available.</p>';
 }
 function renderPrescriptions() {
@@ -446,10 +457,10 @@ runBtn.addEventListener('click', async () => {
   const files = [...csvInput.files];
   if (!files.length) {
     diagnosticsReport.textContent =
-      'Please select at least one CSV file to analyze.';
+      'Please select at least one file (CSV, TSV, TXT, PSV, Excel .xlsx, or PDF) to analyze.';
     return;
   }
-  diagnosticsReport.textContent = 'Executing browser/API analytics pipeline...';
+  diagnosticsReport.textContent = 'Executing multi-agent analytics pipeline across files...';
   try {
     renderResults(
       await analyzeFiles(files),
@@ -460,12 +471,18 @@ runBtn.addEventListener('click', async () => {
   }
 });
 loadDemoBtn.addEventListener('click', async () => {
-  diagnosticsReport.textContent = 'Loading built-in demo ERP dataset...';
+  const demoDomainSelect = $('demoDomainSelect');
+  const domainId = demoDomainSelect ? demoDomainSelect.value : 'erp_default';
+  diagnosticsReport.textContent = `Loading business domain dataset (${domainId})...`;
   try {
     let result;
     if (apiBase !== null) {
       try {
-        result = await fetchJson('/api/demo-data', { method: 'POST' });
+        result = await fetchJson('/api/demo-data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ domain: domainId }),
+        });
       } catch (error) {
         console.warn('API unavailable; loading static demo:', error);
       }

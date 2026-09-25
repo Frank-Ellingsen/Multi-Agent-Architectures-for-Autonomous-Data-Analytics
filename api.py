@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import shutil
 import sys
 import tempfile
 from pathlib import Path
@@ -16,7 +17,7 @@ from multi_agent_analytics.ai_agent import (  # noqa: E402
     test_llm_connection,
 )
 from multi_agent_analytics.analytics import compute_forecast_snapshot, compute_key_metrics  # noqa: E402
-from multi_agent_analytics.dataset import load_dataset_summary  # noqa: E402
+from multi_agent_analytics.dataset import SUPPORTED_EXTENSIONS, load_dataset_summary  # noqa: E402
 from multi_agent_analytics.decision import generate_prescriptions, generate_prognosis  # noqa: E402
 from multi_agent_analytics.relationships import validate_relationships  # noqa: E402
 from multi_agent_analytics.reporting import build_markdown_report  # noqa: E402
@@ -24,6 +25,60 @@ from multi_agent_analytics.schema import summarize_schema  # noqa: E402
 from multi_agent_analytics.workflow import DEFAULT_SKILLS  # noqa: E402
 
 app = Flask(__name__, static_folder='static')
+
+UNSEEN_DATA_DIR = ROOT / 'test_data' / 'unseen_businesses'
+
+DEMO_DOMAINS = {
+    'erp_default': {
+        'id': 'erp_default',
+        'title': 'Enterprise ERP & Financial Controlling',
+        'format': 'Star Schema CSV (Semicolon)',
+        'description': 'General Ledger (FactGL), Budget, Forecast, and FTE headcount star schema.',
+        'files': ['FactGL.csv', 'FactBudget.csv', 'FactForecast.csv', 'FactFTE.csv', 'DimDate.csv', 'DimAccount.csv', 'Relationships.csv'],
+    },
+    'maritime_defense': {
+        'id': 'maritime_defense',
+        'title': 'Maritime & Naval Defense Shipbuilding',
+        'format': 'Excel Workbook (.xlsx)',
+        'description': 'Multi-sheet workbook with WBS Cost Control, EAC/ETC forecasts, composite hull hours, CPI/SPI, and milestone risk reserves.',
+        'file': 'maritime_defense_vessel.xlsx',
+    },
+    'saas_subscription': {
+        'id': 'saas_subscription',
+        'title': 'Cloud SaaS & Subscription Analytics',
+        'format': 'Tab-Separated Values (.tsv)',
+        'description': 'B2B subscription customer metrics including MRR, ARR, churn risk score, CAC, LTV, and active seat counts.',
+        'file': 'saas_subscription_platform.tsv',
+    },
+    'nordic_retail': {
+        'id': 'nordic_retail',
+        'title': 'Nordic Retail & Supply Chain Operations',
+        'format': 'European Semicolon CSV (.csv)',
+        'description': 'SKU level inventory, procurement costs, monthly turnover, gross margin percentages, and warehouse locations.',
+        'file': 'nordic_retail_inventory.csv',
+    },
+    'offshore_marine': {
+        'id': 'offshore_marine',
+        'title': 'Offshore Energy & Drilling Fleet Operations',
+        'format': 'Pipe-Separated Values (.psv)',
+        'description': 'Vessel fleet operating day rates, fuel consumption, downtime hours, maintenance actuals vs budgets, and crew FTEs.',
+        'file': 'offshore_marine_drilling.psv',
+    },
+    'hospital_kpis': {
+        'id': 'hospital_kpis',
+        'title': 'Regional Healthcare Trust Executive Report',
+        'format': 'Structured Document (.pdf)',
+        'description': 'Extracted clinical tabular report with hospital department admissions, bed occupancy, budgets, actual spend, and clinical staff FTE.',
+        'file': 'hospital_executive_kpis.pdf',
+    },
+    'consulting': {
+        'id': 'consulting',
+        'title': 'Professional Consulting & Engineering Advisory',
+        'format': 'Delimited Text (.txt)',
+        'description': 'Client advisory engagements, billed fees, incurred hours, realization rate percentages, and partner portfolio tracking.',
+        'file': 'management_consulting_engagements.txt',
+    },
+}
 
 
 @app.before_request
@@ -62,8 +117,9 @@ def health():
     return jsonify({
         'status': 'healthy',
         'service': 'multi-agent-analytics',
-        'version': '0.1.0',
+        'version': '0.2.0',
         'skills_count': len(DEFAULT_SKILLS),
+        'supported_extensions': list(SUPPORTED_EXTENSIONS),
     })
 
 
@@ -115,6 +171,11 @@ def get_skills():
     return jsonify({'skills': catalog})
 
 
+@app.get('/api/demo-domains')
+def get_demo_domains():
+    return jsonify({'domains': list(DEMO_DOMAINS.values())})
+
+
 def _analyze_directory(data_dir: Path) -> dict[str, Any]:
     metrics = compute_key_metrics(data_dir)
     snapshot = compute_forecast_snapshot(data_dir)
@@ -134,14 +195,17 @@ def _analyze_directory(data_dir: Path) -> dict[str, Any]:
 def analyze():
     uploaded_files = request.files.getlist('files')
     if not uploaded_files:
-        return jsonify({'error': 'Upload at least one CSV file.'}), 400
+        return jsonify({'error': 'Upload at least one file (CSV, TSV, TXT, PSV, Excel .xlsx, or PDF).'}), 400
 
     with tempfile.TemporaryDirectory(prefix='multi-agent-analytics-') as temp_dir:
         data_dir = Path(temp_dir)
         for uploaded in uploaded_files:
             filename = Path(uploaded.filename or '').name
-            if not filename or not filename.lower().endswith('.csv'):
-                return jsonify({'error': 'Only CSV files are supported.'}), 400
+            ext = Path(filename).suffix.lower()
+            if not filename or ext not in SUPPORTED_EXTENSIONS:
+                return jsonify({
+                    'error': f"File '{filename}' has an unsupported format. Supported formats: {', '.join(SUPPORTED_EXTENSIONS)}"
+                }), 400
             uploaded.save(data_dir / filename)
 
         result = _analyze_directory(data_dir)
@@ -173,11 +237,30 @@ def analyze():
 
 @app.post('/api/demo-data')
 def load_demo():
-    demo_dir = ROOT / 'test_data'
-    if not demo_dir.exists():
-        return jsonify({'error': 'Built-in demo data directory not found.'}), 404
-    result = _analyze_directory(demo_dir)
-    return jsonify(result)
+    payload = request.get_json(silent=True) or {}
+    domain_id = payload.get('domain') or request.args.get('domain', 'erp_default')
+
+    if domain_id not in DEMO_DOMAINS or domain_id == 'erp_default':
+        demo_dir = ROOT / 'test_data'
+        if not demo_dir.exists():
+            return jsonify({'error': 'Built-in demo data directory not found.'}), 404
+        result = _analyze_directory(demo_dir)
+        result['loaded_domain'] = DEMO_DOMAINS['erp_default']
+        return jsonify(result)
+
+    # Load specific unseen business domain file
+    domain_meta = DEMO_DOMAINS[domain_id]
+    target_filename = domain_meta['file']
+    source_file = UNSEEN_DATA_DIR / target_filename
+    if not source_file.exists():
+        return jsonify({'error': f"Mock data file '{target_filename}' not found. Run generator script first."}), 404
+
+    with tempfile.TemporaryDirectory(prefix=f'multi-agent-{domain_id}-') as temp_dir:
+        dest_dir = Path(temp_dir)
+        shutil.copy2(source_file, dest_dir / target_filename)
+        result = _analyze_directory(dest_dir)
+        result['loaded_domain'] = domain_meta
+        return jsonify(result)
 
 
 @app.post('/api/ai/test-key')
