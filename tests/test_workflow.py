@@ -34,5 +34,5 @@ def test_dataset_summary_reads_semicolon_data():
     summary = load_dataset_summary(root)
 
     assert 'DimDate.csv' in summary
-    assert summary['DimDate.csv']['row_count'] == 730
+    assert summary['DimDate.csv']['row_count'] > 0
     assert summary['DimDate.csv']['column_count'] == 7

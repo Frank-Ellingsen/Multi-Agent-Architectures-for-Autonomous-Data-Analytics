@@ -176,6 +176,58 @@
           </div>
 
           <div class="card">
+            <h3>Data Quality & Descriptive Statistics</h3>
+            <div id="statsSummaryStrip" class="metrics-strip" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 16px;">
+              <div class="metric-box">
+                <span class="metric-label">Total Extracted Cells</span>
+                <div class="metric-value" id="statTotalCells">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Missing / Null Cells</span>
+                <div class="metric-value" id="statMissingCells">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Dataset Quality Rating</span>
+                <div class="metric-value" id="statQualityRating">-</div>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 16px; margin-bottom: 8px;">Column Profiling & Data Types</h4>
+            <div id="columnProfilesTable" class="table-container">
+              <p class="empty-state">Column profiles will appear after running diagnostics.</p>
+            </div>
+
+            <h4 style="margin-top: 20px; margin-bottom: 8px;">Numerical Descriptive Statistics</h4>
+            <div id="numericStatsTable" class="table-container">
+              <p class="empty-state">Descriptive statistics will appear after running diagnostics.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Exploratory Data Analysis (EDA) Visuals</h3>
+            <div class="eda-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 12px;">
+              <div class="chart-box">
+                <h4>Top Dimensional Category Breakdown</h4>
+                <div id="categoryChartContainer" class="chart-container">
+                  <p class="empty-state">Category chart will render after loading data.</p>
+                </div>
+              </div>
+              <div class="chart-box">
+                <h4>Metric Value Frequency Distribution</h4>
+                <div id="histogramChartContainer" class="chart-container">
+                  <p class="empty-state">Histogram will render after loading data.</p>
+                </div>
+              </div>
+              <div class="chart-box" style="grid-column: 1 / -1;">
+                <h4>Time-Series / Period Trend Projection</h4>
+                <div id="trendChartContainer" class="chart-container">
+                  <p class="empty-state">Time-series chart will render after loading data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
             <h3>Dataset Summary & Entity Architecture</h3>
             <div id="datasetSummary" class="summary-grid">
               <p class="empty-state">No dataset loaded. Upload CSV files or click "Load Demo ERP Dataset".</p>
@@ -200,6 +252,9 @@
           <div class="card">
             <h2>Prognostic Scenarios & Risk Projections</h2>
             <p class="section-desc">Multi-scenario projections (Skill 20) with downside uncertainty modeling and budget variance tracking.</p>
+            <div id="prognosticsVisContainer" class="chart-container" style="margin-bottom: 20px;">
+              <p class="empty-state">Prognostics visual will render after loading data.</p>
+            </div>
             <div id="prognosticsTable" class="table-container">
               <p class="empty-state">Load data to view prognostic scenarios.</p>
             </div>
@@ -209,6 +264,34 @@
         <!-- Tab 3: Prescriptions -->
         <section id="prescriptions-panel" class="panel">
           <div class="card">
+            <h2>🎯 New Prognosis After Recommended Actions</h2>
+            <p class="section-desc">Action intervention impact simulation comparing baseline prognosis vs downside risk vs post-action prognosis.</p>
+            <div id="actionImpactMetricsStrip" class="metrics-strip" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
+              <div class="metric-box">
+                <span class="metric-label">Original EAC Baseline</span>
+                <div class="metric-value" id="impactBaseline">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Total Action Savings / Gains</span>
+                <div class="metric-value" id="impactSavings" style="color: var(--success);">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Post-Action Adjusted Prognosis</span>
+                <div class="metric-value" id="impactPostPrognosis" style="color: var(--accent);">-</div>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Net Risk Improvement</span>
+                <div class="metric-value" id="impactImprovementPct" style="color: var(--success);">-</div>
+              </div>
+            </div>
+
+            <div class="chart-box" style="margin-bottom: 24px;">
+              <h4>Action Intervention Impact Waterfall Simulation</h4>
+              <div id="actionImpactChartContainer" class="chart-container">
+                <p class="empty-state">Action impact visual will render after loading data.</p>
+              </div>
+            </div>
+
             <h2>Prescriptive Decision Portfolio</h2>
             <p class="section-desc">Optimized interventions (Skill 24) ranked by ROI impact, feasibility, and risk.</p>
             <div id="prescriptionsList">

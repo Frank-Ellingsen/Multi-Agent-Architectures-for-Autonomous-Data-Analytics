@@ -11,7 +11,8 @@ import streamlit as st
 from multi_agent_analytics.ai_agent import generate_executive_narrative, test_llm_connection
 from multi_agent_analytics.analytics import compute_key_metrics
 from multi_agent_analytics.dataset import SUPPORTED_EXTENSIONS, load_dataset_summary
-from multi_agent_analytics.decision import generate_prescriptions, generate_prognosis
+from multi_agent_analytics.decision import generate_action_impact_prognosis, generate_prescriptions, generate_prognosis, generate_prognosis_visuals
+from multi_agent_analytics.eda import compute_descriptive_stats, compute_eda_visuals
 from multi_agent_analytics.relationships import validate_relationships
 from multi_agent_analytics.reporting import build_markdown_report
 from multi_agent_analytics.schema import summarize_schema
@@ -37,7 +38,7 @@ with st.sidebar:
     st.header('Navigation')
     menu = st.radio(
         'Menu',
-        ['Upload & Diagnostics', 'Prognostics', 'Prescriptions', 'AI Decision Story', '30-Skill Catalog']
+        ['Upload & Diagnostics', 'Data Stats & EDA Visuals', 'Prognostics & Scenarios', 'Action Portfolio & Post-Action Prognosis', 'AI Decision Story', '30-Skill Catalog']
     )
 
     st.markdown('---')
@@ -103,11 +104,15 @@ with tempfile.TemporaryDirectory() as temp_dir:
 
     dataset_summary = load_dataset_summary(temp_path)
     schema_summary = summarize_schema(temp_path)
+    descriptive_stats = compute_descriptive_stats(temp_path)
+    eda_visuals = compute_eda_visuals(temp_path)
     relationship_summary = validate_relationships(temp_path)
     metrics = compute_key_metrics(temp_path)
     report = build_markdown_report(temp_path)
     prognosis = generate_prognosis(metrics)
+    prognosis_vis = generate_prognosis_visuals(metrics, prognosis)
     prescriptions = generate_prescriptions(metrics)
+    action_impact = generate_action_impact_prognosis(metrics, prescriptions)
 
     domain = metrics.get('domain', 'Enterprise Financial Controlling')
     currency = metrics.get('currency', 'NOK')
@@ -146,15 +151,95 @@ with tempfile.TemporaryDirectory() as temp_dir:
         st.subheader('Inferred Schema & Data Types')
         st.json(schema_summary)
 
-    elif menu == 'Prognostics':
-        st.subheader(f'Prognostic Scenarios - {domain}')
+    elif menu == 'Data Stats & EDA Visuals':
+        st.subheader(f'Data Description & Statistics - {domain}')
+        kpi1, kpi2, kpi3 = st.columns(3)
+        kpi1.metric("Total Extracted Cells", f"{descriptive_stats['total_cells']:,}")
+        kpi2.metric("Missing / Null Cells", f"{descriptive_stats['total_missing']:,}")
+        kpi3.metric("Dataset Quality Rating", f"{100.0 - descriptive_stats['overall_missing_pct']:.1f}%")
+
+        st.markdown('### Column Schema & Data Profiling')
+        if descriptive_stats['column_profiles']:
+            st.dataframe(descriptive_stats['column_profiles'], use_container_width=True)
+
+        st.markdown('### Numerical Descriptive Statistics')
+        if descriptive_stats['numeric_summaries']:
+            st.dataframe(descriptive_stats['numeric_summaries'], use_container_width=True)
+        else:
+            st.info('No purely numeric columns detected for statistical profiling.')
+
+        st.markdown('---')
+        st.subheader('Exploratory Data Analysis (EDA) Visuals')
+
+        col_a, col_b = st.columns(2)
+        with col_a:
+            st.markdown('#### Top Dimensional Breakdown')
+            cb = eda_visuals.get('category_breakdown', [])
+            if cb:
+                st.bar_chart({item['category']: item['value'] for item in cb})
+            else:
+                st.info('No categorical breakdown columns found.')
+
+        with col_b:
+            st.markdown('#### Value Distribution Histogram')
+            nh = eda_visuals.get('numeric_histogram', [])
+            if nh:
+                st.bar_chart({item['bin_range']: item['count'] for item in nh})
+            else:
+                st.info('No numeric value distributions available.')
+
+        st.markdown('#### Period / Time Series Trend')
+        ts = eda_visuals.get('time_series_trend', [])
+        if ts:
+            st.line_chart({item['period']: item['value'] for item in ts})
+        else:
+            st.info('No temporal date dimension detected for time series plotting.')
+
+    elif menu == 'Prognostics & Scenarios':
+        st.subheader(f'Prognostic Scenarios & Forecast Visuals - {domain}')
+        sc_cols = st.columns(3)
+        for idx, sc in enumerate(prognosis_vis['scenarios']):
+            with sc_cols[idx]:
+                st.metric(
+                    sc['name'],
+                    f"{sc['value']:,.2f} {currency}",
+                    delta=f"Var: {sc['variance_vs_budget']:,.2f} {currency}",
+                    delta_color="normal"
+                )
+
+        st.markdown('### Multi-Scenario Trajectory Projection')
+        traj_data = prognosis_vis['trajectory']
+        if traj_data:
+            chart_dict = {
+                item['period']: {
+                    'Baseline (EAC)': item['baseline'],
+                    'Conservative (Downside)': item['conservative'],
+                    'Optimistic (Upside)': item['optimistic'],
+                }
+                for item in traj_data
+            }
+            st.line_chart(chart_dict)
+
         st.dataframe([
-            {'scenario': name.capitalize(), 'actual': f"{data['actual_total']:,.2f}", 'expected': f"{data['expected_total']:,.2f}", 'variance_vs_budget': f"{data['variance_vs_budget']:,.2f}"}
+            {'Scenario': name.capitalize(), 'Actual Total': f"{data['actual_total']:,.2f}", 'Expected Total (EAC)': f"{data['expected_total']:,.2f}", 'Variance vs Budget': f"{data['variance_vs_budget']:,.2f}"}
             for name, data in prognosis.items()
         ], use_container_width=True)
 
-    elif menu == 'Prescriptions':
-        st.subheader(f'Prescriptive Action Portfolio - {domain}')
+    elif menu == 'Action Portfolio & Post-Action Prognosis':
+        st.subheader(f'Prescriptive Action Portfolio & Post-Action Visual Prognosis - {domain}')
+
+        st.markdown('### 🎯 New Prognosis After Recommended Actions')
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Original EAC Baseline", f"{action_impact['baseline_prognosis']:,.2f} {currency}")
+        m2.metric("Total Action Savings / Gains", f"{action_impact['total_action_savings']:,.2f} {currency}")
+        m3.metric("Post-Action Adjusted Prognosis", f"{action_impact['post_action_prognosis']:,.2f} {currency}")
+        m4.metric("Net Risk Improvement", f"+{action_impact['net_improvement_pct']:.2f}%")
+
+        st.markdown('#### Action Intervention Impact Simulation')
+        wf_chart = {step['step']: abs(step['value']) for step in action_impact['waterfall_steps']}
+        st.bar_chart(wf_chart)
+
+        st.markdown('### Recommended Action Interventions')
         for action in prescriptions:
             with st.expander(f"⭐ {action['title']} (Impact Score: {action['impact_score']})", expanded=True):
                 st.write(action['description'])
@@ -183,3 +268,4 @@ with tempfile.TemporaryDirectory() as temp_dir:
         st.subheader('Autonomous Analytics 30-Skill Operational Catalog')
         for skill in DEFAULT_SKILLS:
             st.markdown(f"**{skill.id} - {skill.title}**: {skill.description}")
+

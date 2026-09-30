@@ -18,7 +18,13 @@ from multi_agent_analytics.ai_agent import (  # noqa: E402
 )
 from multi_agent_analytics.analytics import compute_forecast_snapshot, compute_key_metrics  # noqa: E402
 from multi_agent_analytics.dataset import SUPPORTED_EXTENSIONS, load_dataset_summary  # noqa: E402
-from multi_agent_analytics.decision import generate_prescriptions, generate_prognosis  # noqa: E402
+from multi_agent_analytics.decision import (  # noqa: E402
+    generate_action_impact_prognosis,
+    generate_prescriptions,
+    generate_prognosis,
+    generate_prognosis_visuals,
+)
+from multi_agent_analytics.eda import compute_descriptive_stats, compute_eda_visuals  # noqa: E402
 from multi_agent_analytics.relationships import validate_relationships  # noqa: E402
 from multi_agent_analytics.reporting import build_markdown_report  # noqa: E402
 from multi_agent_analytics.schema import summarize_schema  # noqa: E402
@@ -179,14 +185,20 @@ def get_demo_domains():
 def _analyze_directory(data_dir: Path) -> dict[str, Any]:
     metrics = compute_key_metrics(data_dir)
     snapshot = compute_forecast_snapshot(data_dir)
+    prognosis = generate_prognosis(metrics)
+    prescriptions = generate_prescriptions(metrics)
     return {
         'dataset_summary': load_dataset_summary(data_dir),
         'schema_summary': summarize_schema(data_dir),
+        'descriptive_stats': compute_descriptive_stats(data_dir),
+        'eda_visuals': compute_eda_visuals(data_dir),
         'relationship_summary': validate_relationships(data_dir),
         'metrics': metrics,
         'forecast_snapshot': snapshot,
-        'prognosis': generate_prognosis(metrics),
-        'prescriptions': generate_prescriptions(metrics),
+        'prognosis': prognosis,
+        'prognosis_visuals': generate_prognosis_visuals(metrics, prognosis),
+        'prescriptions': prescriptions,
+        'action_impact': generate_action_impact_prognosis(metrics, prescriptions),
         'report': build_markdown_report(data_dir),
     }
 

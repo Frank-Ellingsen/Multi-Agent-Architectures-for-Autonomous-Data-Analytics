@@ -95,7 +95,7 @@ def compute_key_metrics(data_dir: str | Path) -> dict[str, Any]:
     fact_fte = root / 'FactFTE.csv'
 
     if fact_gl.exists() and fact_budget.exists() and fact_forecast.exists():
-        actual_total = _sum_column(fact_gl, 'Belop_signert')
+        actual_total = _sum_column(fact_gl, 'Belop') or _sum_column(fact_gl, 'Belop_signert')
         budget_total = _sum_column(fact_budget, 'BudsjettBelop')
         forecast_total = _sum_column(fact_forecast, 'ForecastBelop')
         fte_total = _sum_column(fact_fte, 'Aarsverk')

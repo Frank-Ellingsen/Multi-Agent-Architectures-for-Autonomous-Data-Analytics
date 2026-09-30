@@ -12,6 +12,6 @@ def test_sql_engine_queries_csv():
 
 def test_sql_engine_aggregates_kpis():
     data_dir = Path(__file__).resolve().parents[1] / 'test_data'
-    results = execute_sql(data_dir, 'SELECT SUM(TRY_CAST(Belop_signert AS DOUBLE)) as total FROM FactGL')
+    results = execute_sql(data_dir, 'SELECT SUM(TRY_CAST(Belop AS DOUBLE)) as total FROM FactGL')
     assert len(results) == 1
     assert results[0]['total'] is not None
