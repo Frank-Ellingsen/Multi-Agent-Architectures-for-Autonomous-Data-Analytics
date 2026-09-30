@@ -61,9 +61,39 @@ flowchart LR
 
 ---
 
+## Domain & Executive Reporting Skill Packs
+
+In addition to the 30-step modular workflow, the catalog includes specialized executive reporting and dashboard design skill specifications:
+
+1. **Reporting Expert Skill:** [reporting-expert-SKILL.md](reporting-expert-SKILL.md) & [project-finance-ai-reporting-expert-skill/](project-finance-ai-reporting-expert-skill/) — Standardized HTML decision reports, RAG governance, BLUF storytelling, and WCAG accessibility.
+2. **Exploratory Data Analysis & Visuals:** [eda-visuals-skill.md](eda-visuals-skill.md) — Descriptive EDA, quality profiling, KPI variance attribution, and Tufte visual selection.
+3. **Predictions & Prognosis Visuals:** [predictions-prognosis-skill.md](predictions-prognosis-skill.md) — Time-series backtesting, P10/P50/P90 EAC prediction intervals, Monte Carlo simulation, and fan chart rendering.
+4. **Recommended Actions & Impact Visuals:** [recommended-actions-skill.md](recommended-actions-skill.md) — Prescriptive interventions, knapsack MCDA portfolio optimization, pro-forma balance calculations, and waterfall bridge visuals.
+5. **Orchestration & Decision Storytelling:** [orchestration-reporting-skill.md](orchestration-reporting-skill.md) — Multi-agent pipeline orchestration, deterministic RAG scorecards, BLUF narrative synthesis, and validator audit gates.
+6. **Power BI Dashboard Guide:** [pbi_dashboard_gudie_skill.md](../pbi_dashboard_gudie_skill.md) — 16:9 canvas layout, Segoe UI typography, core DAX measures, card visual styling, and 3-30-300 grid mapping.
+7. **Storytelling with Data in Power BI:** [storytelling-with-data-pbi-skill-v3.md](../storytelling-with-data-pbi-skill-v3.md) — Executive reporting philosophy, RAG threshold matrices, Tufte data-ink rules, and dynamic DAX narrative formatting.
+
+---
+
+## Antigravity AI Agent Integration (.agents/skills/)
+
+All skill specifications are integrated into the Antigravity workspace agent system at `.agents/skills/`:
+
+- `.agents/skills/autonomous-data-analytics-workflow/`
+- `.agents/skills/reporting-expert/`
+- `.agents/skills/eda-visuals/`
+- `.agents/skills/predictions-prognosis/`
+- `.agents/skills/recommended-actions/`
+- `.agents/skills/orchestration-reporting/`
+- `.agents/skills/powerbi-dashboard-guide/`
+- `.agents/skills/storytelling-with-data-pbi/`
+
+---
+
 ## Architectural Principles
 
 - **Deterministic Governance:** Never allow an LLM to assign or override mathematical calculations or RAG statuses.
 - **Data-Ink Ratio:** Follow Edward Tufte principles — maximize signal, eliminate decorative clutter, right-align numbers.
 - **Traceable Evidence:** Every executive assertion is backed by a transaction voucher or verified audit trail.
 - **Local-First Analytics:** High-performance in-memory processing with DuckDB and SQLite with zero external cloud dependencies.
+
