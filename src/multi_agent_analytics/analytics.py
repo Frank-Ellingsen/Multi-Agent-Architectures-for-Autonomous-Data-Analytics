@@ -55,6 +55,7 @@ def detect_business_domain(data_dir: str | Path) -> dict[str, str]:
     combined = re.sub(r'[_.-]', ' ', f"{all_names} {all_cols}").lower()
 
     domain_rules = [
+        ("Higher Education & Faculty Financial Controlling", ["fakultet", "institutt", "hhu", "rammebevilgning", "forskningsråd", "nfr", "evu", "oppdragsundervisning", "kontonavn", "kontotype", "regnskapbelop", "budsjettbelop", "fakultetsadministrasjon"]),
         ("Healthcare & Hospital Administration", ["hospital", "admission", "admissions", "bed_days", "occupancy", "clinic", "patient", "icu", "surgery", "healthcare", "pediatrics", "radiology", "oncology"]),
         ("Offshore Marine & Energy Drilling", ["offshore", "drilling", "day rate", "downtime", "rig", "subsea", "fuel cost", "operator"]),
         ("Maritime & Defense Project Controlling", ["wbs", "eac", "etc nok", "cpi", "spi", "corvette", "composite", "hull", "naval", "shipyard", "patrol"]),
@@ -116,26 +117,30 @@ def compute_key_metrics(data_dir: str | Path) -> dict[str, Any]:
     domain_info = detect_business_domain(root)
 
     actual_candidates = [
+        'regnskapbelop_nok', 'regnskapbelop', 'regnskapsbeløp', 'regnskap_nok', 'regnskap',
         'actual_cost_nok', 'actual_cost', 'actual_billing_nok', 'actual', 'actuals',
         'mrr_usd', 'arr_usd', 'maanedlig_salg_nok', 'belop_signert', 'belop',
         'maintenance_actual_usd', 'maintenance_actual_nok', 'kostnad', 'spend', 'sales', 'billing'
     ]
     budget_candidates = [
+        'budsjettbelop_nok', 'budsjettbelop', 'budsjett_nok', 'budsjett',
         'budget_nok', 'budget_cost_nok', 'operating_budget_nok', 'budget_fees_nok',
-        'budget_mrr_usd', 'budget', 'budsjett_salg_nok', 'budsjettbelop', 'budsjett',
-        'maintenance_budget_usd', 'maintenance_budget_nok', 'plan', 'target'
+        'budget_mrr_usd', 'budget', 'budsjett_salg_nok', 'budsjettbelop', 'plan', 'target'
     ]
     forecast_candidates = [
+        'forecastbelop_nok', 'forecastbelop', 'prognosebelop_nok', 'prognosebelop', 'prognose',
         'eac_nok', 'eac', 'forecast_cost_nok', 'forecast_billing_nok',
-        'forecast_mrr_usd', 'forecast', 'prognose_salg_nok', 'forecastbelop', 'prognose',
-        'maintenance_forecast_usd', 'maintenance_forecast_nok', 'etc_nok', 'estimate'
+        'forecast_mrr_usd', 'forecast', 'prognose_salg_nok',
+        'maintenance_forecast_usd', 'maintenance_forecast_nok', 'etc_nok', 'estimate', 'avvikbelop_nok'
     ]
     labor_candidates = [
-        'hours_actual', 'incurred_hours', 'staff_fte', 'crew_fte', 'aarsverk',
+        'hours_actual', 'incurred_hours', 'staff_fte', 'crew_fte', 'aarsverk', 'årsverk',
         'fte', 'timer', 'hours', 'admissions', 'active_seats', 'lagerbeholdning'
     ]
 
     def _find_sum(candidates: list[str]) -> float:
+        total = 0.0
+        found = False
         for t_name, (header, rows) in tables.items():
             if t_name.endswith('.csv'):
                 continue
@@ -145,13 +150,18 @@ def compute_key_metrics(data_dir: str | Path) -> dict[str, Any]:
                     idx = lower_header[cand]
                     col_sum = sum(_parse_number(r[idx]) for r in rows if idx < len(r))
                     if col_sum != 0.0:
-                        return col_sum
-        return 0.0
+                        total += col_sum
+                        found = True
+                        break
+        return total if found else 0.0
 
     actual_total = _find_sum(actual_candidates)
     budget_total = _find_sum(budget_candidates)
     forecast_total = _find_sum(forecast_candidates)
     fte_total = _find_sum(labor_candidates)
+
+    if actual_total > 0.0 and budget_total > 0.0 and forecast_total == 0.0:
+        forecast_total = budget_total
 
     # Fallback to any numeric columns if specialized columns not found
     if actual_total == 0.0 and budget_total == 0.0:

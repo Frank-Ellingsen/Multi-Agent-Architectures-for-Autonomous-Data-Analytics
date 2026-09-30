@@ -1,0 +1,577 @@
+﻿Aar;Maaned;Dato;OrgKode;OrgNavn;Konto;Kontonavn;Kontotype;BudsjettBelop_NOK
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584896
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;199394
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;584889
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;5000;Lønn fast ansatte;Lønnskostnad;531717
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;980000
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;63000
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;63000
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;63000
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;63000
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;63000
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;35000
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;14000
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;35000
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;77000
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;77000
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;77000
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;70000
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;97440
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;92960
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;60900
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;5420;Pensjonspremie til SPK;Lønnskostnad;58100
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;23333
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;140000
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;50400
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;21000
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;50400
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;33600
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;6420;Leie av datasystemer;Annen driftskostnad;29400
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;37800
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;37800
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;42000
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;42000
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;42000
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;33600
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;8400
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;16800
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;42000
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;42000
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;42000
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;33600
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;19600
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;25200
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;30800
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;30800
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;30800
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;16800
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;2800
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;11200
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;33600
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;33600
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;30800
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;14000
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;25200
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;37800
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;46200
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;46200
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;50400
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;25200
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;4200
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;12600
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;50400
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;50400
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;50400
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;7130;Reisekostnad;Annen driftskostnad;21000
+2026;M01;2026-01-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M02;2026-02-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M03;2026-03-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M04;2026-04-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M05;2026-05-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M06;2026-06-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M07;2026-07-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M08;2026-08-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M09;2026-09-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M10;2026-10-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M11;2026-11-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M12;2026-12-01;K10000;HHU Fakultetsadministrasjon;7790;Annen kostnad;Annen driftskostnad;35000
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;548333
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1608444
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;5000;Lønn fast ansatte;Lønnskostnad;1462222
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;2695000
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;5080;Feriepenger;Lønnskostnad;0
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;173250
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;173250
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;173250
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;173250
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;173250
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;96250
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;38500
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;96250
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;211750
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;211750
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;211750
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;5100;Lønn midlertidig ansatte;Lønnskostnad;192500
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;267960
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;255640
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;167475
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;5420;Pensjonspremie til SPK;Lønnskostnad;159775
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;64167
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;385000
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;138600
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;57750
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;138600
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;92400
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;6420;Leie av datasystemer;Annen driftskostnad;80850
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;103950
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;103950
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;115500
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;115500
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;115500
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;92400
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;23100
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;46200
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;115500
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;115500
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;115500
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;92400
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;53900
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;69300
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;84700
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;84700
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;84700
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;46200
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;7700
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;30800
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;92400
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;92400
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;84700
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;38500
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;69300
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;103950
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;127050
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;127050
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;138600
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;69300
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;11550
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;34650
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;138600
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;138600
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;138600
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;7130;Reisekostnad;Annen driftskostnad;57750
+2026;M01;2026-01-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M02;2026-02-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M03;2026-03-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M04;2026-04-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M05;2026-05-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M06;2026-06-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M07;2026-07-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M08;2026-08-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M09;2026-09-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M10;2026-10-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M11;2026-11-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M12;2026-12-01;K11000;Institutt for ledelse og innovasjon;7790;Annen kostnad;Annen driftskostnad;96250
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;416591
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1222000
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;5000;Lønn fast ansatte;Lønnskostnad;1110909
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;2047500
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;5080;Feriepenger;Lønnskostnad;0
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;131625
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;131625
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;131625
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;131625
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;131625
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;73125
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;29250
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;73125
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;160875
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;160875
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;160875
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;5100;Lønn midlertidig ansatte;Lønnskostnad;146250
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;203580
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;194220
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;127237
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;5420;Pensjonspremie til SPK;Lønnskostnad;121388
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;48750
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;292500
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;105300
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;43875
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;105300
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;70200
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;6420;Leie av datasystemer;Annen driftskostnad;61425
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;78975
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;78975
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;87750
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;87750
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;87750
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;70200
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;17550
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;35100
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;87750
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;87750
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;87750
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;70200
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;40950
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;52650
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;64350
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;64350
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;64350
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;35100
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;5850
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;23400
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;70200
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;70200
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;64350
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;29250
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;52650
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;78975
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;96525
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;96525
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;105300
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;52650
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;8775
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;26325
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;105300
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;105300
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;105300
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;7130;Reisekostnad;Annen driftskostnad;43875
+2026;M01;2026-01-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M02;2026-02-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M03;2026-03-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M04;2026-04-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M05;2026-05-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M06;2026-06-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M07;2026-07-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M08;2026-08-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M09;2026-09-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M10;2026-10-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M11;2026-11-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M12;2026-12-01;K12000;Institutt for rettsvitenskap;7790;Annen kostnad;Annen driftskostnad;73125
+2026;M01;2026-01-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M02;2026-02-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M03;2026-03-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M04;2026-04-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M05;2026-05-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M06;2026-06-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;689388
+2026;M07;2026-07-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M08;2026-08-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M09;2026-09-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M10;2026-10-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M11;2026-11-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;2022204
+2026;M12;2026-12-01;K13000;Institutt for økonomi;5000;Lønn fast ansatte;Lønnskostnad;1838367
+2026;M01;2026-01-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M02;2026-02-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M03;2026-03-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M04;2026-04-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M05;2026-05-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M06;2026-06-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;3388268
+2026;M07;2026-07-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M08;2026-08-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M09;2026-09-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M10;2026-10-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M11;2026-11-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M12;2026-12-01;K13000;Institutt for økonomi;5080;Feriepenger;Lønnskostnad;0
+2026;M01;2026-01-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;217817
+2026;M02;2026-02-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;217817
+2026;M03;2026-03-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;217817
+2026;M04;2026-04-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;217817
+2026;M05;2026-05-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;217817
+2026;M06;2026-06-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;121010
+2026;M07;2026-07-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;48404
+2026;M08;2026-08-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;121010
+2026;M09;2026-09-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;266221
+2026;M10;2026-10-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;266221
+2026;M11;2026-11-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;266221
+2026;M12;2026-12-01;K13000;Institutt for økonomi;5100;Lønn midlertidig ansatte;Lønnskostnad;242019
+2026;M01;2026-01-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M02;2026-02-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M03;2026-03-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M04;2026-04-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M05;2026-05-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M06;2026-06-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;336891
+2026;M07;2026-07-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M08;2026-08-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M09;2026-09-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M10;2026-10-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M11;2026-11-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M12;2026-12-01;K13000;Institutt for økonomi;5400;Arbeidsgiveravgift innberettede ytelser;Lønnskostnad;321401
+2026;M01;2026-01-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M02;2026-02-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M03;2026-03-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M04;2026-04-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M05;2026-05-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M06;2026-06-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;210557
+2026;M07;2026-07-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M08;2026-08-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M09;2026-09-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M10;2026-10-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M11;2026-11-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M12;2026-12-01;K13000;Institutt for økonomi;5420;Pensjonspremie til SPK;Lønnskostnad;200876
+2026;M01;2026-01-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M02;2026-02-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M03;2026-03-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M04;2026-04-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M05;2026-05-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M06;2026-06-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M07;2026-07-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M08;2026-08-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M09;2026-09-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M10;2026-10-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M11;2026-11-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M12;2026-12-01;K13000;Institutt for økonomi;6050;Avskrivning driftsløsøre/inventar/IKT;Annen driftskostnad;80673
+2026;M01;2026-01-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M02;2026-02-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M03;2026-03-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M04;2026-04-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M05;2026-05-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M06;2026-06-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M07;2026-07-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M08;2026-08-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M09;2026-09-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M10;2026-10-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M11;2026-11-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M12;2026-12-01;K13000;Institutt for økonomi;6310;Leie lokaler fra Statsbygg;Annen driftskostnad;484038
+2026;M01;2026-01-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;174254
+2026;M02;2026-02-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M03;2026-03-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M04;2026-04-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M05;2026-05-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M06;2026-06-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M07;2026-07-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;72606
+2026;M08;2026-08-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;174254
+2026;M09;2026-09-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M10;2026-10-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M11;2026-11-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;116169
+2026;M12;2026-12-01;K13000;Institutt for økonomi;6420;Leie av datasystemer;Annen driftskostnad;101648
+2026;M01;2026-01-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;130690
+2026;M02;2026-02-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;130690
+2026;M03;2026-03-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;145211
+2026;M04;2026-04-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;145211
+2026;M05;2026-05-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;145211
+2026;M06;2026-06-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;116169
+2026;M07;2026-07-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;29042
+2026;M08;2026-08-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;58085
+2026;M09;2026-09-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;145211
+2026;M10;2026-10-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;145211
+2026;M11;2026-11-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;145211
+2026;M12;2026-12-01;K13000;Institutt for økonomi;6700;Konsulenttjenester økonomi/revisjon/juss;Annen driftskostnad;116169
+2026;M01;2026-01-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;67765
+2026;M02;2026-02-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;87127
+2026;M03;2026-03-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;106488
+2026;M04;2026-04-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;106488
+2026;M05;2026-05-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;106488
+2026;M06;2026-06-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;58085
+2026;M07;2026-07-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;9681
+2026;M08;2026-08-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;38723
+2026;M09;2026-09-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;116169
+2026;M10;2026-10-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;116169
+2026;M11;2026-11-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;106488
+2026;M12;2026-12-01;K13000;Institutt for økonomi;6870;Kurs og seminarer egne ansatte;Annen driftskostnad;48404
+2026;M01;2026-01-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;87127
+2026;M02;2026-02-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;130690
+2026;M03;2026-03-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;159733
+2026;M04;2026-04-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;159733
+2026;M05;2026-05-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;174254
+2026;M06;2026-06-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;87127
+2026;M07;2026-07-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;14521
+2026;M08;2026-08-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;43563
+2026;M09;2026-09-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;174254
+2026;M10;2026-10-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;174254
+2026;M11;2026-11-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;174254
+2026;M12;2026-12-01;K13000;Institutt for økonomi;7130;Reisekostnad;Annen driftskostnad;72606
+2026;M01;2026-01-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M02;2026-02-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M03;2026-03-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M04;2026-04-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M05;2026-05-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M06;2026-06-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M07;2026-07-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M08;2026-08-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M09;2026-09-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M10;2026-10-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M11;2026-11-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010
+2026;M12;2026-12-01;K13000;Institutt for økonomi;7790;Annen kostnad;Annen driftskostnad;121010

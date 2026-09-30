@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'src'))
 
 from multi_agent_analytics.analytics import compute_forecast_snapshot, compute_key_metrics
-from multi_agent_analytics.dataset import detect_delimiter, load_dataset_summary
+from multi_agent_analytics.dataset import detect_delimiter, extract_all_tables_from_dir, load_dataset_summary
 from multi_agent_analytics.decision import generate_prescriptions, generate_prognosis
 from multi_agent_analytics.relationships import validate_relationships
 from multi_agent_analytics.reporting import build_markdown_report
@@ -72,59 +72,79 @@ def run_evaluation():
     # 4. DuckDB Analytical SQL Deep-Dives
     print("\n--- 4. DUCKDB ANALYTICAL DEEP-DIVES (Skills 10, 12, 14) ---")
 
-    # Top Accounts by Actual Cost
-    top_accounts_sql = """
-    SELECT 
-        g.Konto,
-        COALESCE(a.Kontonavn, 'Unknown') AS AccountName,
-        SUM(TRY_CAST(g.Belop_signert AS DOUBLE)) AS ActualSpend
-    FROM FactGL g
-    LEFT JOIN DimAccount a ON CAST(g.Konto AS VARCHAR) = CAST(a.Konto AS VARCHAR)
-    GROUP BY g.Konto, a.Kontonavn
-    ORDER BY ActualSpend DESC
-    LIMIT 5
-    """
-    print("Top 5 Accounts by Actual Spend:")
-    top_accounts = execute_sql(data_dir, top_accounts_sql)
-    for r in top_accounts:
-        spend = float(r.get('ActualSpend') or 0.0)
-        print(f"  Account {str(r.get('Konto')):<6}: {str(r.get('AccountName')):<35} {format_nok(spend):>20}")
+    tables = extract_all_tables_from_dir(data_dir)
+    table_names = [t for t in tables if not t.endswith('.csv')]
 
-    # Top Organizations by FTE
-    top_org_sql = """
-    SELECT 
-        f.Organisasjonsnokkel,
-        COALESCE(o.Instituttnavn, 'Unknown') AS OrgName,
-        ROUND(SUM(TRY_CAST(f.Aarsverk AS DOUBLE)), 1) AS TotalFTE
-    FROM FactFTE f
-    LEFT JOIN DimOrganization o ON f.Organisasjonsnokkel = o.Organisasjonsnokkel
-    GROUP BY f.Organisasjonsnokkel, o.Instituttnavn
-    ORDER BY TotalFTE DESC
-    LIMIT 5
-    """
-    print("\nTop 5 Organizations by Labor (FTE):")
-    top_orgs = execute_sql(data_dir, top_org_sql)
-    for r in top_orgs:
-        fte = float(r.get('TotalFTE') or 0.0)
-        print(f"  Org {str(r.get('Organisasjonsnokkel')):<8}: {str(r.get('OrgName')):<40} {fte:>8.1f} FTE")
+    # Check for HHU actual dataset or FactGL dataset
+    hhu_actual = next((t for t in table_names if 'actual' in t.lower() and 'revenue' not in t.lower()), None)
+    hhu_revenue = next((t for t in table_names if 'revenueactual' in t.lower() or 'revenue_actual' in t.lower()), None)
+    hhu_budget = next((t for t in table_names if 'budget' in t.lower() and 'revenue' not in t.lower()), None)
 
-    # Top Projects
-    top_proj_sql = """
-    SELECT 
-        g.Prosjekt,
-        COALESCE(p.Prosjektnavn, 'Direct Operating Line') AS ProjectName,
-        SUM(TRY_CAST(g.Belop_signert AS DOUBLE)) AS ProjectActual
-    FROM FactGL g
-    LEFT JOIN DimProject p ON g.Prosjekt = p.Prosjekt
-    GROUP BY g.Prosjekt, p.Prosjektnavn
-    ORDER BY ProjectActual DESC
-    LIMIT 5
-    """
-    print("\nTop Projects by Spend:")
-    top_projects = execute_sql(data_dir, top_proj_sql)
-    for r in top_projects:
-        proj_spend = float(r.get('ProjectActual') or 0.0)
-        print(f"  Project {str(r.get('Prosjekt')):<10}: {str(r.get('ProjectName')):<35} {format_nok(proj_spend):>20}")
+    if hhu_actual:
+        print(f"Executing analytical SQL against target table: {hhu_actual}")
+        top_accounts_sql = f"""
+        SELECT 
+            Konto,
+            Kontonavn,
+            OrgNavn,
+            SUM(TRY_CAST(RegnskapBelop_NOK AS DOUBLE)) AS ActualSpend,
+            SUM(TRY_CAST(BudsjettBelop_NOK AS DOUBLE)) AS BudgetSpend,
+            SUM(TRY_CAST(AvvikBelop_NOK AS DOUBLE)) AS VarianceNOK
+        FROM "{hhu_actual}"
+        GROUP BY Konto, Kontonavn, OrgNavn
+        ORDER BY ActualSpend DESC
+        LIMIT 5
+        """
+        top_accounts = execute_sql(data_dir, top_accounts_sql)
+        print("Top 5 Expense Accounts by Actual Spend (YTD M01-M09):")
+        for r in top_accounts:
+            spend = float(r.get('ActualSpend') or 0.0)
+            bud = float(r.get('BudgetSpend') or 0.0)
+            print(f"  Account {str(r.get('Konto')):<6}: {str(r.get('Kontonavn')):<35} Spend: {format_nok(spend):>18} | Bud: {format_nok(bud):>18}")
+
+        top_org_sql = f"""
+        SELECT 
+            OrgKode,
+            OrgNavn,
+            SUM(TRY_CAST(RegnskapBelop_NOK AS DOUBLE)) AS ActualSpend,
+            SUM(TRY_CAST(BudsjettBelop_NOK AS DOUBLE)) AS BudgetSpend,
+            SUM(TRY_CAST(AvvikBelop_NOK AS DOUBLE)) AS VarianceNOK
+        FROM "{hhu_actual}"
+        GROUP BY OrgKode, OrgNavn
+        ORDER BY ActualSpend DESC
+        """
+        print("\nExpense Breakdown by Organization / Department:")
+        top_orgs = execute_sql(data_dir, top_org_sql)
+        for r in top_orgs:
+            spend = float(r.get('ActualSpend') or 0.0)
+            var_val = float(r.get('VarianceNOK') or 0.0)
+            print(f"  Org {str(r.get('OrgKode')):<7}: {str(r.get('OrgNavn')):<42} Spend: {format_nok(spend):>18} | Var: {format_nok(var_val):>15}")
+
+    elif 'FactGL' in table_names:
+        top_accounts_sql = """
+        SELECT 
+            g.Konto,
+            COALESCE(a.Kontonavn, 'Unknown') AS AccountName,
+            SUM(TRY_CAST(g.Belop_signert AS DOUBLE)) AS ActualSpend
+        FROM FactGL g
+        LEFT JOIN DimAccount a ON CAST(g.Konto AS VARCHAR) = CAST(a.Konto AS VARCHAR)
+        GROUP BY g.Konto, a.Kontonavn
+        ORDER BY ActualSpend DESC
+        LIMIT 5
+        """
+        print("Top 5 Accounts by Actual Spend:")
+        top_accounts = execute_sql(data_dir, top_accounts_sql)
+        for r in top_accounts:
+            spend = float(r.get('ActualSpend') or 0.0)
+            print(f"  Account {str(r.get('Konto')):<6}: {str(r.get('AccountName')):<35} {format_nok(spend):>20}")
+
+    else:
+        target_t = table_names[0] if table_names else 'test'
+        generic_sql = f'SELECT * FROM "{target_t}" LIMIT 5'
+        print(f"Sample query on table {target_t}:")
+        sample_rows = execute_sql(data_dir, generic_sql)
+        for r in sample_rows[:3]:
+            print(f"  {r}")
 
     # 5. Prognostics & Scenario Modeling
     print("\n--- 5. PROGNOSTICS & SCENARIO UNCERTAINTY (Skills 19-22) ---")
